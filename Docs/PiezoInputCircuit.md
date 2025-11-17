@@ -172,11 +172,18 @@ The R and C form the RC circuit. The zener diode clips the positive part of the 
 
 
 In the [fallstad circuit](https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgpABZsKBTAWjDACgBDEJlGqsFHm5hC-QSGISoyeHG4x42MAgw1C2JTTyRsKYgkLds0ZRgJ9CrbJUKGwsyGwBu3GiJC8qTN3YHSIfMjSVDAIbABOru6sKNyYsTH+8BFxGAl+PGkegfzJkSx+YBiGBbGe0mhwbADuqWWBLOLljrXe7uWZ9SFsAA4guuDiA+X0ITIOveDFIIQ0U4YoBv3B47I13LPgGdrzUOvDDQJCzetFhpudM3MtdVe3iTdnHkuXi4Y3ry-x2d2tiUfCaZgYixD5PYGxHiBCF7VrlGFQ-g0a5sAAmwlEgyEpSxHhAqIYADMOABXAA2ABd1pdEoitqCUjiAUzplRKI4uExNgDouJJMZRqs5DxoKQUCI+MQ8NhiNgaCpmNiFHAlCo1BowFodHolvY1rVeUIBgDHnZxCw7KzqdFply5k8PtzbdzkbDhIVbTsHWwAPYgcibMR6KgCyAiVRhtTEZEIYjvWBwCD8X0gISBwbB2ii0gYdkCGikbCshNh8DgNhAA) the AC signal has an amplitude of 10V. The first opamp has voltage range 0v to 9v. The second opamp has voltage range of 0v to 3.3v.
+
 <img src="./Images/Piezo/FallstadPiezoModuleCircuit.png" width=400px>
 
 The first opamp is a voltage follower. This makes sure that the high impedence piezo doesn't interfere with the circuit in the module.
 
-In falstad this circuit looked fine. But when building it, the diode after the first opamp gave some issues on the negative cyle of the piezo voltage. The opamp would clip to Vcc (20V). So I added a diode between the two piezo signals to ignore the negative cycle. The screenshot below shows that the lower voltages result in a 0V output from the opamp.
+In falstad this circuit looked fine. But when building it, the diode after the first opamp gave some issues on the negative cyle of the piezo voltage. The opamp would clip to Vcc (20V). So I added a diode between the two piezo signals to ignore the negative cycle.
+
+The final circuit (without the final boost potentionmeter and the RC holding circuit) looks like this.
+
+<img src="./Images/Piezo/PiezoModuleCircuit.png" width=450px>
+
+The screenshot below shows that the negative voltages result in a 0V output from the opamp. The yellow line is the piezo signal. The blue line is the output of the first opamp.
 
 <img src="./Images/Piezo/Scope/OpAmpVcc20VDiodeOnOutput.png" width=450px>
 
@@ -184,7 +191,7 @@ After to trying things, I figured that the voltage drop over the output diode mi
 
 <img src="./Images/Piezo/Scope/OpAmpVcc20VNoDiodeOnOutput.png" width=450px>
 
-Once that worked. I added a potentiometer between output of the first opamp and the input of the second opamp to control the output voltage. I also increased Vcc to 30V. The two images below show different amount of rotation of the potentiometer. Blue is the output if the first opamp. Purple is the output of the second opamp.
+Once that worked. I added a potentiometer between output of the first opamp and the input of the second opamp to control the output voltage. I also increased Vcc to 30V. For this test the Vcc of both opamps where the same. The two images below show different amount of rotation of the potentiometer. Blue is the output if the first opamp. Purple is the output of the second opamp.
 
 <img src="./Images/Piezo/Scope/OpAmpScalerVcc30Peak6V2.png" width=450px>
 <img src="./Images/Piezo/Scope/OpAmpScalerVcc30Peak2V8.png" width=450px>
@@ -196,7 +203,3 @@ In the meantime I tries a zener on the output of the second opamp. However, eith
 <img src="./Images/Piezo/Scope/OpAmpScalerVcc30Zener3V.png" width=450px>
 
 Optionally a second potentiometer can be added between the output of the second opamp and the negative input of the second input. Where the 'negative' of the opamp is connected to ground. This allows to boost low voltage signals from the piezo. But seeing the voltages created by a drum pad, I don't think that this is necessary.
-
-The final circuit (without the final boost potentionmeter and the RC holding circuit) looks like this.
-
-<img src="./Images/Piezo/PiezoModuleCircuit.png" width=450px>
