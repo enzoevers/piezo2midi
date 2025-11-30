@@ -35,11 +35,11 @@ Going from top-left to bottom-right. First I removed the plastic ring and rubber
 
 I found similar circuits for other pads when looking online.
 
-## Pad side of the circuit
-
 So the circuit inside a pad is voltage divider and the output is the voltage over R2. By using a potentiometer instead, and connecting the tip to the 'middle' of the potentiometer, each pad can be finetuned.
 
 <img src="./Images/Piezo/PiezoWithPotentiometerCircuit.png" width=400px>
+
+## The raw piezo signal
 
 ### Bare piezo signal
 
@@ -47,7 +47,7 @@ Before going further I want to have a more detailed look at the raw piezo signal
 
 > When looking at the scope images, pay attention to the time and voltage division values!
 
-First I connected the scope probe straight to the ceremic part of the piezo disc, and the ground to the base disc. The scope shows the signals after I hit the disc with my finger. I also looked at the idle signal of the piezo in the different circuits. In this 'open' circuit I noticed that the center of the idle signal was not really at ground.
+First I connected the scope probe straight to the ceremic (white) part of the piezo disc, and the ground to the base disc. The scope shows the signals after I hit the disc with my finger. I also looked at the idle signal of the piezo in the different circuits. In this 'open' circuit I noticed that the center of the idle signal was not stable at ground.
 
 <div class="row">
   <div class="column">
@@ -59,7 +59,9 @@ First I connected the scope probe straight to the ceremic part of the piezo disc
   </div>
 </div>
 
-Then I places a 1M ohm resistor in parall with the piezo. Once the parallel resistor was connected the center of the idle signal was already more stable around ground.
+### Parallel resistor
+
+Then I placed a 1M ohm resistor in parall with the piezo. Once the parallel resistor was connected the center of the idle signal was already more stable around ground.
 
 The maximum (positive) voltage didn't really change. But the signal went a lot quicker ban to ground. Now it went back (after hitting it) after ~300ms. In the previous circuit that was ~1100ms.
 
@@ -72,6 +74,8 @@ The maximum (positive) voltage didn't really change. But the signal went a lot q
     <img src="./Images/Piezo/Scope/PiezoParallel1MR.png" width=450px>
   </div>
 </div>
+
+### Voltage divider circuit
 
 Then I made a voltage divider with a 22K ohm resistor connected to the 'positive' wire of the piezo. We are measuring the voltage over the parallel 1M ohm resistor.
 
@@ -89,11 +93,15 @@ This time the signal went back to ground after ~200ms
 
 ### Drum pad piezo signal
 
-The same was done with with Alesis drum pad, and my own DIY drum pad (created based on the [open-e-drum project](https://open-e-drums.com/hardware/download_pad.html)). For the DIY pad I used the same circuit (voltage divider) as the Alesis pad. However, instead of a 20K ohm resister I used a 22K ohm resister since that was the closest value I had.
+The same was done with the Alesis drum pad (8-inch), and my own DIY drum pads (8-inch and 10-inch) (created based on the [open-e-drum project](https://open-e-drums.com/hardware/download_pad.html)). For the DIY pad I used the same circuit (voltage divider) as the Alesis pad. However, instead of a 20K ohm resister I used a 22K ohm resister since that was the closest value I had.
 
 All scope images of a hit where made by hitting the center of the pad with a drum stick.
 
-Testing the Alesis 8 inch pad.
+#### Alesis 8-inch pad
+
+The signal after a hit shows a lot more oscillations than the bare piezo. Most likely because of the other materials in the pad that resonate as well.
+
+The signals has an amplitude of ~13V and goes back to ground after ~40ms.
 
 <div class="row">
   <div class="column">
@@ -104,6 +112,8 @@ Testing the Alesis 8 inch pad.
     <img src="./Images/Piezo/Scope/AlesisPadHit3.png" width=450px>
   </div>
 </div>
+
+#### DIY 8-inch pad
 
 The DIY pads have the construction shown below. The piezo (base) disk is 35mm in diameter.
 
@@ -117,13 +127,11 @@ The DIY pads have the construction shown below. The piezo (base) disk is 35mm in
 
 Looking at the signals from the DIY pads the following things stand out:
 
-- The signal takes a lot longer to die out. This may be changes by changing the tightness of the mesh head. But probably the hit of a stick also resonates more into the 3D printed shell, which then is transferred to the piezo.
-- The signals is not a smooth decaying sine wave. Instead you see that there are small 'dents' in the high and low part of the signal. This probably has to do with the DIY nature of mount ing the piezo between two double-sided pieces of tape, and the sub-optimal DIY foam coan.
-- The amplitude of the Alisis pad is almost twise as large as that one of the DIY pads. Maybe because it is a different piezo.
+- The signal takes a lot longer to die out (~100ms). This may be changed by changing the tightness of the mesh head. But probably the hit of a stick also resonates more into the 3D printed shell, which then is transferred to the piezo.
+- The signals is not a smooth decaying sine wave. Instead you see that there are small 'dents' in the high and low part of the signal. This probably has to do with the DIY nature of mounting the piezo between two double-sided pieces of tape, and the sub-optimal DIY foam coan.
+- The amplitude of the Alisis pad ~(13V) is almost twise as large as that one of the DIY pads (~6.5V). Maybe because it is a different piezo, or because the piezo is physically further away from the hit of the stick on the pad.
 
-Nevertheless, the DIY pads do work like a normal pad when connecting it to the Alesis DM6 module. The volume was a little bit lower than the original pads. But, in my experience, not twice as lower.
-
-Testing the DIY 8 inch pad.
+Nevertheless, the DIY pads do work like a normal pad when connecting it to the Alesis DM6 module. The volume was a little bit lower than the original pads. But, in my experience, not twice as lower. Increasing the volume on the DM6 module a bit solved this 'issue'.
 
 <div class="row">
   <div class="column">
@@ -135,7 +143,9 @@ Testing the DIY 8 inch pad.
   </div>
 </div>
 
-Testing the DIY 10 inch pad.
+#### DIY 10-inch pad
+
+The 10-inch DIY has the same learning points as the 8-inch DIY pad.
 
 <div class="row">
   <div class="column">
@@ -151,55 +161,70 @@ Testing the DIY 10 inch pad.
 
 From the previous measurement it was seen that the input amplitude can be on quite a large range (from ~4V amplitude to ~14V amplitude). Also some people may hit hard and others soft. You also want to have some dynamics while playing which impact the voltage.
 
-The excact type of wave and voltage amplitude depends on the piezo itself and its surroundings. To not pin myself on a certain setup (and to make it easier for myself) I just want to make sure that the negative part of clipped to 0V, and that the positive part is clipped to the maximum allowed voltage of the chosen microcontroller.
+The excact type of wave and voltage amplitude depends on the piezo itself and its surroundings. To not pin myself on a certain setup (and to make it easier for myself) I just want to make sure that the negative part is clipped to 0V, and that the positive part is clipped to the maximum allowed voltage of the chosen microcontroller.
 
-To still have some room for dynamic playing, the input voltage must be manually adjustable. Otherwise, if the circuit would simply clip the input to for example 3.3V, there would be no room for dynamic playing. Everthing would not clip.
+To still have some room for dynamic playing, the input voltage must be manually scalable with for example a potmeter. Otherwise, if the circuit would simply clip the input to for example 3.3V, there would be no room for dynamic playing. Everthing would not clip.
 
-For example I placed a zener diode of 3.3V (1n4728a) and 7.5V (1n4737a) parallel to the piezo input. The results are shown below.
+### Clipping with only a zener diode
+
+To test the clipping of zener diodes, I placed a zener diode of 3.3V (1n4728a) and 7.5V (1n4737a) parallel to the Alesis pad output. The results are shown below respectively.
+
+Here you clearly see the diode voltage drop of 0.8V when the signal is negative, and the clipped signal when it is larger than the zener voltage. However, the positive clipped voltage for the 7.5V zener is more like 8V. This may be due to a low quality diode?
 
 <div class="row">
+  <div class="column">
+    <img src="./Images/Piezo/PiezoZenerCircuit.png" width=450px>
+  </div>
   <div class="column">
     <img src="./Images/Piezo/Scope/AlesisPad3v3ZenerHit2.png" width=450px>
     <img src="./Images/Piezo/Scope/AlesisPad7v5ZenerHit2.png" width=450px>
   </div>
 </div>
 
-I also want to add an RC circuit to control how long the peaks can be read out.
+<!-- I also want to add an RC circuit to control how long the peaks can be read out.
 
 The R and C form the RC circuit. The zener diode clips the positive part of the input signal to the zener voltage. The 'normal' diode makes sure voltage drop over the zener diode in the negative part of the input signal is blocked. Preventing negative inputs to the ADC of the microcontroller. The downside of this circuit is that the voltage to the ADC always has the voltage drop over D1. To prevent this, a [peak detector circuit](https://components101.com/articles/peak-detector-circuit-type-working-explanation-using-opamp) could be added.
 
-<img src="./Images/Piezo/PiezoModuleInputCircuit.png" width=400px>
+<img src="./Images/Piezo/PiezoModuleInputCircuit.png" width=400px> -->
 
+### Piezo interface circuit
 
-In the [fallstad circuit](https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgpABZsKBTAWjDACgBDEJlGqsFHm5hC-QSGISoyeHG4x42MAgw1C2JTTyRsKYgkLds0ZRgJ9CrbJUKGwsyGwBu3GiJC8qTN3YHSIfMjSVDAIbABOru6sKNyYsTH+8BFxGAl+PGkegfzJkSx+YBiGBbGe0mhwbADuqWWBLOLljrXe7uWZ9SFsAA4guuDiA+X0ITIOveDFIIQ0U4YoBv3B47I13LPgGdrzUOvDDQJCzetFhpudM3MtdVe3iTdnHkuXi4Y3ry-x2d2tiUfCaZgYixD5PYGxHiBCF7VrlGFQ-g0a5sAAmwlEgyEpSxHhAqIYADMOABXAA2ABd1pdEoitqCUjiAUzplRKI4uExNgDouJJMZRqs5DxoKQUCI+MQ8NhiNgaCpmNiFHAlCo1BowFodHolvY1rVeUIBgDHnZxCw7KzqdFply5k8PtzbdzkbDhIVbTsHWwAPYgcibMR6KgCyAiVRhtTEZEIYjvWBwCD8X0gISBwbB2ii0gYdkCGikbCshNh8DgNhAA) the AC signal has an amplitude of 10V. The first opamp has voltage range 0v to 9v. The second opamp has voltage range of 0v to 3.3v.
-
-<img src="./Images/Piezo/FallstadPiezoModuleCircuit.png" width=400px>
-
-The first opamp is a voltage follower. This makes sure that the high impedence piezo doesn't interfere with the circuit in the module.
-
-In falstad this circuit looked fine. But when building it, the diode after the first opamp gave some issues on the negative cyle of the piezo voltage. The opamp would clip to Vcc (20V). So I added a diode between the two piezo signals to ignore the negative cycle.
-
-The final circuit (without the final boost potentionmeter and the RC holding circuit) looks like this.
+The circuit below will be used to feed the piezo signal into an ADC.
 
 <img src="./Images/Piezo/PiezoModuleCircuit.png" width=450px>
 
-The screenshot below shows that the negative voltages result in a 0V output from the opamp. The yellow line is the piezo signal. The blue line is the output of the first opamp.
+Going to left to right:
 
-<img src="./Images/Piezo/Scope/OpAmpVcc20VDiodeOnOutput.png" width=450px>
+- The first diode in parallel with the piezo signal is to ignore the negative part of the piezo signal.
+  - There is still the voltage drop from the diode.
+- The first opamp is a voltage follower.
+  - This makes sure that the high impedence piezo doesn't interfere with the circuit in the module.
+  - Vcc should be at least as high as the maximum expected piezo signal. We don't want to clip the signal.
+  - The output of the opamp is expected to be the same (follow) the input voltage.
+- The potmeter is to scale the piezo voltage down.
+  - It acts as a voltage divider.
+  - The 'middle' pin is connected to the input for the second opamp.
+- The purpose of the second opamp is to clip the voltage to a safe value for the ADC.
 
-After to trying things, I figured that the voltage drop over the output diode might be the issue. Removing this output diode and connecting the output straight into the negative opamp input, the piezo voltage was followed correctly at the lower voltages as well.
+#### Measuring the output of the first opamp
+
+In the screenshot below, the yellow line is the piezo signal. The blue line is the output of the first opamp.
+
+The Vcc for the opamp is set to 20V. This results in the opamp output to be clipped to ~20V (19.2V in this case).
+
+The negative piezo voltages results in a 0.6V voltage drop over the diode. The output of the opamp has -0.2V output at these points.
+
+The image shows that the voltage follow does work to follow the input signal.
 
 <img src="./Images/Piezo/Scope/OpAmpVcc20VNoDiodeOnOutput.png" width=450px>
 
-Once that worked. I added a potentiometer between output of the first opamp and the input of the second opamp to control the output voltage. I also increased Vcc to 30V. For this test the Vcc of both opamps where the same. The two images below show different amount of rotation of the potentiometer. Blue is the output if the first opamp. Purple is the output of the second opamp.
+#### Measuring the output of the second opamp with the potmeter
+
+For this section I increased Vcc to 30V to not clip the output of the first opamp. For this test the Vcc of both opamps where the same.
+
+The two images below show different amount of rotation of the potentiometer. Blue is the output if the first opamp. Purple is the output of the second opamp.
 
 <img src="./Images/Piezo/Scope/OpAmpScalerVcc30Peak6V2.png" width=450px>
 <img src="./Images/Piezo/Scope/OpAmpScalerVcc30Peak2V8.png" width=450px>
 
 The second opamp is there to clip the output voltage to the maximum allowed input voltage of the ADC. In the images above a single Vcc was used. Later on I will try separate Vcc voltages to check the clipping of the opamp.
-
-In the meantime I tries a zener on the output of the second opamp. However, either the zener is not the best, or I don't understand zeners enough. But the 3V zener still resulted in voltages larger than 3V. The voltage was clipped like a zener, however.
-
-<img src="./Images/Piezo/Scope/OpAmpScalerVcc30Zener3V.png" width=450px>
-
-Optionally a second potentiometer can be added between the output of the second opamp and the negative input of the second input. Where the 'negative' of the opamp is connected to ground. This allows to boost low voltage signals from the piezo. But seeing the voltages created by a drum pad, I don't think that this is necessary.
