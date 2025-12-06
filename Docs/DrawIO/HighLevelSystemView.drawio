@@ -1,0 +1,404 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.0.3 Chrome/140.0.7339.249 Electron/38.7.0 Safari/537.36" version="29.0.3" pages="2">
+  <diagram name="SystemOverview" id="lljHOmoOdc6FwrsJygGI">
+    <mxGraphModel dx="1212" dy="827" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-1" value="" style="shape=mxgraph.arrows2.wedgeArrowDashed2;html=1;bendable=0;startWidth=20.57142857142857;stepSize=15;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="rPEA67mxuwaBpfZkC1cH-2" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="120" y="160" as="sourcePoint" />
+            <mxPoint x="200" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-2" value="Piezo scaling circuit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="200" y="140" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-3" value="8-channel&lt;div&gt;ADC&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="395" y="140" width="60" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-4" value="" style="shape=mxgraph.arrows2.wedgeArrowDashed2;html=1;bendable=0;startWidth=20.57142857142857;stepSize=15;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="rPEA67mxuwaBpfZkC1cH-5" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="120" y="220" as="sourcePoint" />
+            <mxPoint x="200" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-5" value="Piezo scaling circuit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="200" y="200" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-8" value="" style="shape=mxgraph.arrows2.wedgeArrowDashed2;html=1;bendable=0;startWidth=20.57142857142857;stepSize=15;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="rPEA67mxuwaBpfZkC1cH-9" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="120" y="340" as="sourcePoint" />
+            <mxPoint x="200" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-9" value="Piezo scaling circuit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="200" y="320" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.017;entryY=0.092;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="rPEA67mxuwaBpfZkC1cH-2" target="rPEA67mxuwaBpfZkC1cH-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.364;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="rPEA67mxuwaBpfZkC1cH-5" target="rPEA67mxuwaBpfZkC1cH-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.912;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="rPEA67mxuwaBpfZkC1cH-9" target="rPEA67mxuwaBpfZkC1cH-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-43" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="260" y="310" as="sourcePoint" />
+            <mxPoint x="260" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-44" value="" style="shape=mxgraph.arrows2.wedgeArrowDashed2;html=1;bendable=0;startWidth=20.57142857142857;stepSize=15;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="rPEA67mxuwaBpfZkC1cH-45" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="120" y="400" as="sourcePoint" />
+            <mxPoint x="200" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-45" value="Piezo scaling circuit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="200" y="380" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-46" value="8-channel&lt;div&gt;ADC&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="395" y="380" width="60" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-47" value="" style="shape=mxgraph.arrows2.wedgeArrowDashed2;html=1;bendable=0;startWidth=20.57142857142857;stepSize=15;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="rPEA67mxuwaBpfZkC1cH-48" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="120" y="460" as="sourcePoint" />
+            <mxPoint x="200" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-48" value="Piezo scaling circuit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="200" y="440" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-49" value="" style="shape=mxgraph.arrows2.wedgeArrowDashed2;html=1;bendable=0;startWidth=20.57142857142857;stepSize=15;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="rPEA67mxuwaBpfZkC1cH-50" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="120" y="580" as="sourcePoint" />
+            <mxPoint x="200" y="580" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-50" value="Piezo scaling circuit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="200" y="560" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.017;entryY=0.092;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="rPEA67mxuwaBpfZkC1cH-45" target="rPEA67mxuwaBpfZkC1cH-46" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.364;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="rPEA67mxuwaBpfZkC1cH-48" target="rPEA67mxuwaBpfZkC1cH-46" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.912;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="rPEA67mxuwaBpfZkC1cH-50" target="rPEA67mxuwaBpfZkC1cH-46" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-54" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="260" y="550" as="sourcePoint" />
+            <mxPoint x="260" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="rPEA67mxuwaBpfZkC1cH-55" target="rPEA67mxuwaBpfZkC1cH-3" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="480" y="325" />
+              <mxPoint x="480" y="250" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-60" value="SPI" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="rPEA67mxuwaBpfZkC1cH-57" vertex="1" connectable="0">
+          <mxGeometry x="-0.5595" y="-1" relative="1" as="geometry">
+            <mxPoint x="11" y="16" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="rPEA67mxuwaBpfZkC1cH-55" target="rPEA67mxuwaBpfZkC1cH-46" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="480" y="415" />
+              <mxPoint x="480" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-59" value="SPI" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="rPEA67mxuwaBpfZkC1cH-58" vertex="1" connectable="0">
+          <mxGeometry x="-0.8214" relative="1" as="geometry">
+            <mxPoint x="-7" y="-15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="rPEA67mxuwaBpfZkC1cH-55" target="rPEA67mxuwaBpfZkC1cH-56" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-62" value="MIDI" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="rPEA67mxuwaBpfZkC1cH-61" vertex="1" connectable="0">
+          <mxGeometry x="-0.177" y="-1" relative="1" as="geometry">
+            <mxPoint x="5" y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-55" value="Microcontroller" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="520" y="280" width="180" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="rPEA67mxuwaBpfZkC1cH-56" value="Audio interface" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="760" y="240" width="120" height="260" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="tHN9EoycaiGiZihFMM5z" name="Processing">
+    <mxGraphModel dx="1055" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="U_56kwcxSt3vBPti_NSL-1" value="" style="shape=mxgraph.arrows2.wedgeArrowDashed2;html=1;bendable=0;startWidth=20.57142857142857;stepSize=15;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="U_56kwcxSt3vBPti_NSL-2" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="280" y="240" as="sourcePoint" />
+            <mxPoint x="360" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-2" value="Piezo scaling circuit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="360" y="220" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-3" value="8-channel&lt;div&gt;ADC&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="555" y="220" width="60" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-4" value="" style="shape=mxgraph.arrows2.wedgeArrowDashed2;html=1;bendable=0;startWidth=20.57142857142857;stepSize=15;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="U_56kwcxSt3vBPti_NSL-5" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="280" y="300" as="sourcePoint" />
+            <mxPoint x="360" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-5" value="Piezo scaling circuit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="360" y="280" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-6" value="" style="shape=mxgraph.arrows2.wedgeArrowDashed2;html=1;bendable=0;startWidth=20.57142857142857;stepSize=15;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="U_56kwcxSt3vBPti_NSL-7" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="280" y="420" as="sourcePoint" />
+            <mxPoint x="360" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-7" value="Piezo scaling circuit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="360" y="400" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.017;entryY=0.092;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="U_56kwcxSt3vBPti_NSL-2" target="U_56kwcxSt3vBPti_NSL-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.364;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="U_56kwcxSt3vBPti_NSL-5" target="U_56kwcxSt3vBPti_NSL-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.912;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="U_56kwcxSt3vBPti_NSL-7" target="U_56kwcxSt3vBPti_NSL-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-11" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="420" y="390" as="sourcePoint" />
+            <mxPoint x="420" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-12" value="" style="shape=mxgraph.arrows2.wedgeArrowDashed2;html=1;bendable=0;startWidth=20.57142857142857;stepSize=15;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="U_56kwcxSt3vBPti_NSL-13" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="280" y="480" as="sourcePoint" />
+            <mxPoint x="360" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-13" value="Piezo scaling circuit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="360" y="460" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-14" value="8-channel&lt;div&gt;ADC&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="555" y="460" width="60" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-15" value="" style="shape=mxgraph.arrows2.wedgeArrowDashed2;html=1;bendable=0;startWidth=20.57142857142857;stepSize=15;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="U_56kwcxSt3vBPti_NSL-16" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="280" y="540" as="sourcePoint" />
+            <mxPoint x="360" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-16" value="Piezo scaling circuit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="360" y="520" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-17" value="" style="shape=mxgraph.arrows2.wedgeArrowDashed2;html=1;bendable=0;startWidth=20.57142857142857;stepSize=15;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="U_56kwcxSt3vBPti_NSL-18" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="280" y="660" as="sourcePoint" />
+            <mxPoint x="360" y="660" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-18" value="Piezo scaling circuit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="360" y="640" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.017;entryY=0.092;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="U_56kwcxSt3vBPti_NSL-13" target="U_56kwcxSt3vBPti_NSL-14" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.364;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="U_56kwcxSt3vBPti_NSL-16" target="U_56kwcxSt3vBPti_NSL-14" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.912;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="U_56kwcxSt3vBPti_NSL-18" target="U_56kwcxSt3vBPti_NSL-14" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-22" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="420" y="630" as="sourcePoint" />
+            <mxPoint x="420" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="U_56kwcxSt3vBPti_NSL-29" target="U_56kwcxSt3vBPti_NSL-3" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="305" />
+              <mxPoint x="640" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-24" value="SPI" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="U_56kwcxSt3vBPti_NSL-23" vertex="1" connectable="0">
+          <mxGeometry x="-0.5595" y="-1" relative="1" as="geometry">
+            <mxPoint y="9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="U_56kwcxSt3vBPti_NSL-29" target="U_56kwcxSt3vBPti_NSL-14" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="595" />
+              <mxPoint x="640" y="570" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-26" value="SPI" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="U_56kwcxSt3vBPti_NSL-25" vertex="1" connectable="0">
+          <mxGeometry x="-0.8214" relative="1" as="geometry">
+            <mxPoint x="-14" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="U_56kwcxSt3vBPti_NSL-29" target="U_56kwcxSt3vBPti_NSL-30" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-28" value="MIDI" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="U_56kwcxSt3vBPti_NSL-27" vertex="1" connectable="0">
+          <mxGeometry x="-0.177" y="-1" relative="1" as="geometry">
+            <mxPoint x="5" y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-29" value="Microcontroller" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#ffe6cc;strokeColor=#d79b00;align=center;verticalAlign=top;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="680" y="160" width="1520" height="580" as="geometry" />
+        </mxCell>
+        <mxCell id="U_56kwcxSt3vBPti_NSL-30" value="Audio interface" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="2280" y="320" width="120" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="228HxmUX77cksn96tKcM-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="228HxmUX77cksn96tKcM-2" target="228HxmUX77cksn96tKcM-20" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="980" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="228HxmUX77cksn96tKcM-2" value="Sampling&lt;div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Read one value for each input.&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Update the last read value for each input.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;This effectively samples each input at 4KHz.&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="780" y="190" width="180" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="228HxmUX77cksn96tKcM-12" value="Check threshold&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;For each channel in idle state:&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&lt;i&gt;last sample &amp;gt; channel threshold?&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;If yes, set channel in &lt;/span&gt;scanning state&lt;span style=&quot;font-weight: 400;&quot;&gt;.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;If no, continue sampling.&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="1210" y="210" width="250" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="228HxmUX77cksn96tKcM-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="228HxmUX77cksn96tKcM-13" target="PUKg4Qp2CsPKnVnDxcTp-2" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1500" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="228HxmUX77cksn96tKcM-13" value="Scanning&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;For each channel in scanning state:&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&lt;i&gt;last sample &amp;gt; highest sample?&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&lt;i&gt;&lt;br&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;If yes, highest sample = last sample.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;If no, continue sampling.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: 400;&quot;&gt;Scan time elapsed? Set channel in&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;masking state&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: 400;&quot;&gt;.&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="1210" y="370" width="250" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="228HxmUX77cksn96tKcM-16" value="Masking&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: 400;&quot;&gt;Mask time elapsed? Set channel in&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;idle state&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: 400;&quot;&gt;.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="1210" y="590" width="250" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="228HxmUX77cksn96tKcM-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="228HxmUX77cksn96tKcM-20" target="228HxmUX77cksn96tKcM-12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="228HxmUX77cksn96tKcM-24" value="idle" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="228HxmUX77cksn96tKcM-21" vertex="1" connectable="0">
+          <mxGeometry x="0.2722" y="3" relative="1" as="geometry">
+            <mxPoint y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="228HxmUX77cksn96tKcM-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="228HxmUX77cksn96tKcM-20" target="228HxmUX77cksn96tKcM-13" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1110" y="270" />
+              <mxPoint x="1110" y="460" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="228HxmUX77cksn96tKcM-25" value="scanning" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="228HxmUX77cksn96tKcM-22" vertex="1" connectable="0">
+          <mxGeometry x="0.6896" relative="1" as="geometry">
+            <mxPoint y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="228HxmUX77cksn96tKcM-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="228HxmUX77cksn96tKcM-20" target="228HxmUX77cksn96tKcM-16" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1110" y="270" />
+              <mxPoint x="1110" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="228HxmUX77cksn96tKcM-26" value="masking" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="228HxmUX77cksn96tKcM-23" vertex="1" connectable="0">
+          <mxGeometry x="0.7764" y="-1" relative="1" as="geometry">
+            <mxPoint x="6" y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="228HxmUX77cksn96tKcM-20" value="Check state of each channel" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="990" y="240" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="228HxmUX77cksn96tKcM-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="228HxmUX77cksn96tKcM-27" target="228HxmUX77cksn96tKcM-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="228HxmUX77cksn96tKcM-27" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_2;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="710" y="250" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="228HxmUX77cksn96tKcM-29" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="1500" y="250" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="228HxmUX77cksn96tKcM-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="228HxmUX77cksn96tKcM-12" target="228HxmUX77cksn96tKcM-29" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="228HxmUX77cksn96tKcM-31" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="1500" y="630" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="228HxmUX77cksn96tKcM-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="228HxmUX77cksn96tKcM-16" target="228HxmUX77cksn96tKcM-31" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="228HxmUX77cksn96tKcM-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="228HxmUX77cksn96tKcM-34" target="228HxmUX77cksn96tKcM-35" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="228HxmUX77cksn96tKcM-34" value="&lt;b&gt;Generate MIDI message&lt;/b&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Based on the channel and the highest read sample, generate the MIDI message&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="1700" y="370" width="180" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ZGHVsRqK0dzUUQAjwHK4-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="228HxmUX77cksn96tKcM-35" target="ZGHVsRqK0dzUUQAjwHK4-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="228HxmUX77cksn96tKcM-35" value="&lt;b&gt;Send MIDI message&lt;/b&gt;&lt;br&gt;&lt;br&gt;Sending the note on and off messages takes 1.28ms (assuming the running state is active).&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;It will take 1.6ms when the running state is not active (after a control change message from the hi-hat for example)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="1920" y="370" width="160" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="228HxmUX77cksn96tKcM-38" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="2120" y="440" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="228HxmUX77cksn96tKcM-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="228HxmUX77cksn96tKcM-35" target="228HxmUX77cksn96tKcM-38" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="228HxmUX77cksn96tKcM-40" value="" style="endArrow=baseDash;startArrow=baseDash;html=1;rounded=0;startFill=0;endFill=0;endSize=15;startSize=16;strokeWidth=3;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="680" y="760" as="sourcePoint" />
+            <mxPoint x="2200" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="228HxmUX77cksn96tKcM-41" value="Takes no more time than 4KHz (250us)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=1;fontSize=16;" parent="228HxmUX77cksn96tKcM-40" vertex="1" connectable="0">
+          <mxGeometry x="-0.298" y="-1" relative="1" as="geometry">
+            <mxPoint x="192" y="19" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PUKg4Qp2CsPKnVnDxcTp-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="PUKg4Qp2CsPKnVnDxcTp-2" target="228HxmUX77cksn96tKcM-34" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PUKg4Qp2CsPKnVnDxcTp-2" value="Scan time elapsed?" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="1500" y="405" width="160" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ZGHVsRqK0dzUUQAjwHK4-1" value="Send in non-blocking mode (using interrupts? Not all uC have DMA)" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="1940" y="570" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="K0X_DusuB7H392VkBfNu-1" value="" style="endArrow=baseDash;startArrow=baseDash;html=1;rounded=0;startFill=0;endFill=0;endSize=15;startSize=16;strokeWidth=3;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="780" y="830" as="sourcePoint" />
+            <mxPoint x="960" y="830" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="K0X_DusuB7H392VkBfNu-2" value="At 16 channels and build-in SPI controller&lt;div&gt;Takes ~111.111us&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=1;fontSize=16;" vertex="1" connectable="0" parent="K0X_DusuB7H392VkBfNu-1">
+          <mxGeometry x="-0.298" y="-1" relative="1" as="geometry">
+            <mxPoint x="37" y="39" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

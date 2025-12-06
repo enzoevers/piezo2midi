@@ -143,3 +143,47 @@ The image below (from [wikipedia](https://en.wikipedia.org/wiki/General_MIDI#Per
 Most drum modules send MIDI messages on **channel 10**.
 
 <img src="./Images/MIDI//GM_Standard_Drum_Map_on_vertical_keyboard.svg" style="background-color:white" width=450px>
+
+## System overview
+
+### Microcontroller
+
+The first image below is a very high level system overview. Two ICs will be used, each with 8-channels.
+
+<img src="./Images/System/HighLevelSystemView.drawio.png" width=500px>
+
+The second image shows the algorithm on the microcontroller in a bit more detail.
+
+It shows that each channel will have a state machine (corresponding to the reading windows shown earlier).
+
+Sending the MIDI on&off messages for a single hit (assuming runing status) takes 1.28ms. If the sending of this data would be blocking (simplest implementation), at an effective sampling rate of 4KHz per input, this would result in missing 6 samples per input. Looking at the scope plots from earlier this is around 10% of the expected scanning window. If this is an issue has to be seen in practice after is has been built.
+
+<img src="./Images/System/HighLevelSystemView_Algorithm.drawio.png" width=600px>
+
+Preferably the uart is not blocking. This can be implemented with either interrupts or by usind DMA. DMA has the least impact on the CPU. But not all microcontrollers have DMA. Another method is to use interrupts. This means that you are sending one byte at a time. But instead of waiting for each byte to be sent and then sending the next byte, you send a byte, do something else, and when the bytes is sent (or more specifically, taken out of the UDR register), an interrupt will be triggered to start the sending of the next byte.
+
+This also results in the question, should sample count or time delta be used to determine the scanning/masking windows duration. I think that time delta would be more suitable. Maybe since the analog input is time sensitive. If the sampling gets delayed for some reason, if sample count is used, then the last sample is lower than expected. If time delta is used, you may read less data points, but the last sample is still withing the window where the read data is of interest.
+
+Assuming that the standard SPI peripheral is used, and that whole bytes have to be written/read (worst case), the ADC can be read ad 144KHz / 6.944... us (see earlier section). When all inputs are connected, this means it will take (144KHz / 16 = 9KHz) 111.111... us to read all 16 inputs. This leaves (250 - 111.111...) = ~138.889 us for processing the read samples
+
+### Configuration
+
+To control the scan and masking time, the velocity curves, the MIDI note to send for a certain input, etc. some sort of interface is needed.
+
+This could be done with buttons and a small character-LCD screen, but that wouldn't be very intuitive to use.
+
+Instead using a Raspberry Pi (RPI) with a small (touch) screen would be more intuitive.
+
+Any updates to the configuration done in the RPI would be send over UART to the microcontroller.
+
+When the RPI sends a message, an interrupt on the microcontroller should be fired and the change should be applied.
+
+The configuraiton options **per input** known so far are:
+
+| Setting | Range | Unit |
+|---      |---    |---   |
+| Threshold | 0 - 127 | Integer |
+| Scan time | >= 0 | Milliseconds with 2 decimals precision |
+| Mask time | >= 0 | Milliseconds with 2 decimals precision |
+| Velocity curve ID | >= 0 | Integer |
+| Mapped MIDI note | 0 - 127 | Integer |
