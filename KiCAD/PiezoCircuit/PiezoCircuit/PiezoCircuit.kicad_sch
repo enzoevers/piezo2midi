@@ -1353,34 +1353,28 @@
 		(uuid "0abd8401-075d-4629-98dd-803ce942f516")
 	)
 	(junction
+		(at 53.34 116.84)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "0d157aad-3fed-4c12-b4a0-1f5744e7f4a5")
+	)
+	(junction
 		(at 120.65 46.99)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "0dbc71cf-5d57-41fc-b2cd-cf17025904ad")
 	)
 	(junction
-		(at 54.61 123.19)
+		(at 53.34 124.46)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "296b09fb-9633-4dd0-a055-6610012e7e98")
+		(uuid "27427c65-90bd-4270-81ba-6c497bdf7c08")
 	)
 	(junction
 		(at 133.35 69.85)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "587f4198-0be7-4697-beb2-5c08cb2d1357")
-	)
-	(junction
-		(at 54.61 115.57)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "5f262724-1a3d-4028-ba9a-5149cef393be")
-	)
-	(junction
-		(at 58.42 123.19)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "7680a2b8-748b-4e2a-841d-bdfe5c6482b9")
 	)
 	(junction
 		(at 120.65 36.83)
@@ -1436,16 +1430,6 @@
 	)
 	(wire
 		(pts
-			(xy 54.61 123.19) (xy 58.42 123.19)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "09ccbb23-49b9-422e-89fc-5f119cb314c7")
-	)
-	(wire
-		(pts
 			(xy 73.66 132.08) (xy 58.42 132.08)
 		)
 		(stroke
@@ -1496,33 +1480,13 @@
 	)
 	(wire
 		(pts
-			(xy 50.8 115.57) (xy 54.61 115.57)
+			(xy 50.8 116.84) (xy 53.34 116.84)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "1eb9ed26-e581-4f8b-84e6-03e6ed4a25b7")
-	)
-	(wire
-		(pts
-			(xy 54.61 115.57) (xy 58.42 115.57)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1ed2b35b-c174-4f97-804c-1a1222cbfd6c")
-	)
-	(wire
-		(pts
-			(xy 50.8 123.19) (xy 54.61 123.19)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2aa827e7-4734-474c-be43-f4bdbbe8956e")
 	)
 	(wire
 		(pts
@@ -1646,6 +1610,26 @@
 	)
 	(wire
 		(pts
+			(xy 53.34 124.46) (xy 53.34 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7638e4a6-28d6-4b80-9111-246b2fa4215e")
+	)
+	(wire
+		(pts
+			(xy 50.8 124.46) (xy 53.34 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "77fd5d1d-a5ff-4571-8068-dab8fcbd1fac")
+	)
+	(wire
+		(pts
 			(xy 124.46 69.85) (xy 125.73 69.85)
 		)
 		(stroke
@@ -1663,16 +1647,6 @@
 			(type default)
 		)
 		(uuid "7f2c9e61-23ab-4300-a0be-bc3c17fb5dcc")
-	)
-	(wire
-		(pts
-			(xy 58.42 132.08) (xy 58.42 123.19)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "848a93f8-cbc8-4810-8e93-afa5f562d33b")
 	)
 	(wire
 		(pts
@@ -1726,13 +1700,23 @@
 	)
 	(wire
 		(pts
-			(xy 58.42 123.19) (xy 58.42 121.92)
+			(xy 58.42 121.92) (xy 58.42 132.08)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "953229ff-478a-461f-aeb6-5594573111da")
+	)
+	(wire
+		(pts
+			(xy 53.34 116.84) (xy 58.42 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9aba1ce3-c67a-4ba8-9410-b09d3a7489bb")
 	)
 	(wire
 		(pts
@@ -1924,16 +1908,6 @@
 		)
 		(uuid "ea9e9ee8-7927-4a42-917a-b139c5df3596")
 	)
-	(wire
-		(pts
-			(xy 58.42 115.57) (xy 58.42 116.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ebde0a15-de0a-4305-91fe-d0af02aca04e")
-	)
 	(label "src_sleeve"
 		(at 123.19 46.99 0)
 		(effects
@@ -1965,7 +1939,7 @@
 		(uuid "56f2720a-ccda-4195-9942-cf9b716f9a8e")
 	)
 	(label "src_tip"
-		(at 50.8 115.57 180)
+		(at 50.8 116.84 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2035,7 +2009,7 @@
 		(uuid "ee6d947e-87c5-40b6-baef-939b99522ffe")
 	)
 	(label "src_sleeve"
-		(at 50.8 123.19 180)
+		(at 50.8 124.46 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2121,7 +2095,7 @@
 	)
 	(symbol
 		(lib_id "Diode:1N4001")
-		(at 54.61 119.38 270)
+		(at 53.34 120.65 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2129,7 +2103,7 @@
 		(dnp no)
 		(uuid "175bdb93-6e23-4b06-8bd0-23c79002b9d9")
 		(property "Reference" "D3"
-			(at 50.038 117.856 90)
+			(at 48.768 119.126 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2138,7 +2112,7 @@
 			)
 		)
 		(property "Value" "~"
-			(at 51.308 119.634 90)
+			(at 50.038 120.904 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2147,7 +2121,7 @@
 			)
 		)
 		(property "Footprint" "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal"
-			(at 54.61 119.38 0)
+			(at 53.34 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2156,7 +2130,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.vishay.com/docs/88503/1n4001.pdf"
-			(at 54.61 119.38 0)
+			(at 53.34 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2165,7 +2139,7 @@
 			)
 		)
 		(property "Description" "50V 1A General Purpose Rectifier Diode, DO-41"
-			(at 54.61 119.38 0)
+			(at 53.34 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2174,7 +2148,7 @@
 			)
 		)
 		(property "Sim.Device" "D"
-			(at 54.61 119.38 0)
+			(at 53.34 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2183,7 +2157,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 54.61 119.38 0)
+			(at 53.34 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2471,6 +2445,71 @@
 			(project ""
 				(path "/e389c290-4bba-4504-9313-1b64e80b2486"
 					(reference "#PWR02")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 53.34 125.73 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "708b05ce-54bc-4b4e-92c7-e788e994d90c")
+		(property "Reference" "#PWR07"
+			(at 53.34 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 51.308 126.238 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 53.34 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 53.34 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 53.34 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6132f2e1-326d-415f-8545-48279bcf8892")
+		)
+		(instances
+			(project "PiezoCircuit"
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486"
+					(reference "#PWR07")
 					(unit 1)
 				)
 			)
