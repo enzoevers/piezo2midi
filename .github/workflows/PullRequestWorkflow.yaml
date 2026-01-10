@@ -1,0 +1,215 @@
+name: Pull Request Benchmark Workflow
+on:
+  pull_request:
+    types: [opened, synchronize , reopened , labeled]
+    paths:
+      - ".github/workflows/*"
+      - "**/CMakeLists.txt"
+      - "**.c"
+      - "**.cpp"
+      - "**.h"
+      - "**.hpp"
+
+jobs:
+
+#========================================
+# Checks
+#========================================
+
+  check_formatting:
+    runs-on: ubuntu-22.04
+    name: Check Formatting
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+          sudo add-apt-repository 'deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-18 main'
+          sudo add-apt-repository 'deb-src http://apt.llvm.org/jammy/ llvm-toolchain-jammy-18 main'
+          sudo apt update
+          sudo apt install -y clang-format-18
+          sudo ln -sf $(which clang-format-18) /usr/local/bin/clang-format
+          sh ./Code/format.sh
+
+#========================================
+# Windws MSVC Build
+#========================================
+
+  build_windows_msvc:
+    needs: check_formatting
+    runs-on: windows-2022
+    name: Windows MSVC Build
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up CMake
+        uses: jwlawson/actions-setup-cmake@v1.14
+        with:
+          cmake-version: "3.30.x"
+      # - name: MSCV version
+      #   run: cl
+      - name: Configure CMake
+        run: cmake -S ./Code -B ./build -DBUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        run: cmake --build ./build --config Release -- -m
+      - name: Test
+        run: ctest --test-dir ./build --output-on-failure
+
+#========================================
+# Ubuntu GCC Build
+#========================================
+
+  build_ubuntu_gcc:
+    needs: check_formatting
+    runs-on: ubuntu-22.04
+    name: Ubuntu GCC Build
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: GCC version
+        run: gcc --version
+      - name: Configure CMake
+        run: cmake -S ./Code -B ./build -DBUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        run: cmake --build ./build --config Release -- -j$(nproc)
+      - name: Test
+        run: ctest --test-dir ./build --output-on-failure
+
+#========================================
+# Ubuntu Clang Build
+#========================================
+
+  build_ubuntu_clang:
+    needs: check_formatting
+    runs-on: ubuntu-22.04
+    name: Ubuntu Clang Build
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Clang
+        run: |
+          sudo apt update
+          sudo apt install -y clang
+      - name: Clang version
+        run: clang --version
+      - name: Configure CMake
+        run: cmake -S ./Code -B ./build -DBUILD_TESTS=ON -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        run: cmake --build ./build --config Release -- -j$(nproc)
+      - name: Test
+        run: ctest --test-dir ./build --output-on-failure
+
+#========================================
+# Mac (arm) GCC Build
+#========================================
+
+  build_mac_arm_gcc:
+    needs: check_formatting
+    runs-on: macos-15
+    name: Mac (arm) GCC Build
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install GCC
+        run: brew install gcc
+      - name: GCC version
+        run: gcc --version
+      - name: Configure CMake
+        run: cmake -S ./Code -B ./build -DBUILD_TESTS=ON -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        run: cmake --build ./build --config Release -- -j$(sysctl -n hw.ncpu)
+      - name: Test
+        run: ctest --test-dir ./build --output-on-failure
+
+#========================================
+# Mac (arm) Clang Build
+#========================================
+
+  build_mac_arm_clang:
+    needs: check_formatting
+    runs-on: macos-15
+    name: Mac (arm) Clang Build
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Clang version
+        run: clang --version
+      - name: Configure CMake
+        run: cmake -S ./Code -B ./build -DBUILD_TESTS=ON -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        run: cmake --build ./build --config Release -- -j$(sysctl -n hw.ncpu)
+      - name: Test
+        run: ctest --test-dir ./build --output-on-failure
+
+#========================================
+# Mac (intel) GCC Build
+#========================================
+
+  build_mac_intel_gcc:
+    needs: check_formatting
+    runs-on: macos-15-intel
+    name: Mac (intel) GCC Build
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install GCC
+        run: brew install gcc
+      - name: GCC version
+        run: gcc --version
+      - name: Configure CMake
+        run: cmake -S ./Code -B ./build -DBUILD_TESTS=ON -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        run: cmake --build ./build --config Release -- -j$(sysctl -n hw.ncpu)
+      - name: Test
+        run: ctest --test-dir ./build --output-on-failure
+
+#========================================
+# Mac (intel) Clang Build
+#========================================
+
+  build_mac_intel_clang:
+    needs: check_formatting
+    runs-on: macos-15-intel
+    name: Mac (intel) Clang Build
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Clang version
+        run: clang --version
+      - name: Configure CMake
+        run: cmake -S ./Code -B ./build -DBUILD_TESTS=ON -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        run: cmake --build ./build --config Release -- -j$(sysctl -n hw.ncpu)
+      - name: Test
+        run: ctest --test-dir ./build --output-on-failure
+
+#========================================
+# Windows cross compile to Arduino using avr-gcc
+#
+# https://tinusaur.com/guides/avr-gcc-toolchain/
+#========================================
+
+  build_windows_avr:
+    needs: check_formatting
+    runs-on: windows-2022
+    name: Windows AVR-GCC Cross Compile
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install toolchain
+        run: |
+          .\Scripts\DownloadAvrToolchain.ps1
+          .\Scripts\UpdatePathWithAvrToolchain.ps1 -github_ci $true
+      - name: Tool versions
+        run: |
+          avr-gcc --version
+          make --version
+      - name: Configure CMake
+        run: |
+          $currentPath = (Get-Location).Path
+          cmake -G "Unix Makefiles" -S ./Code -B ./build -DCMAKE_TOOLCHAIN_FILE="$currentPath/Code/CMake/AvrToolchain.cmake" -DAVR_MCU=atmega328p -DF_CPU=16000000L -DAVR_SYSROOT=$currentPath/avr8-gnu-toolchain/avr/ -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        run: cmake --build ./build --config Release -- -j

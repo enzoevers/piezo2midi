@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo "Running pre-commit hook..."
+
+# If Code/format.sh faiils, abort the commit
+./Code/format.sh
+if [ $? -ne 0 ]; then
+    echo "Code formatting failed. Please fix the issues before committing."
+    exit 1
+fi

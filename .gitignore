@@ -50,3 +50,15 @@ fp-info-cache
 ###############
 
 *.drawio.bkp
+
+###############
+# CMake
+###############
+build/
+
+###############
+# Download folders
+###############
+avr-toolchain/
+msys2-tool/
+avrdude/
