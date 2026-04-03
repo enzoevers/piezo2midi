@@ -8,10 +8,6 @@ file(GLOB_RECURSE PRIVATE_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/private/*.cpp
 )
 
-# Temporarily exclude SPI sources until they are implemented
-list(FILTER PRIVATE_SOURCES EXCLUDE REGEX "${CMAKE_CURRENT_SOURCE_DIR}/private/SPI/.*")
-list(FILTER PRIVATE_SOURCES EXCLUDE REGEX "${CMAKE_CURRENT_SOURCE_DIR}/public/SPI/.*")
-
 if(BUILD_TESTS)
     list(FILTER PRIVATE_SOURCES EXCLUDE REGEX "${CMAKE_CURRENT_SOURCE_DIR}/private/.*/hardware/.*")
 endif()

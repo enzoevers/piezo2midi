@@ -20,6 +20,8 @@ public:
 //==============================
 
 TEST_F(Test_UART_AVR_fixture, Constructor_SetsDefaultBaudRateAndFrameFormat) {
+  // TODO: Check that the register are also set
+
   UART_FrameFormat expectedFrameFormat{UART_DataBits::DB8, UART_Parity::NONE,
                                        UART_StopBits::SB1};
 
@@ -29,6 +31,8 @@ TEST_F(Test_UART_AVR_fixture, Constructor_SetsDefaultBaudRateAndFrameFormat) {
 }
 
 TEST_F(Test_UART_AVR_fixture, Constructor_SetsCustomBaudRateAndFrameFormat) {
+  // TODO: Check that the register are also set
+
   UART_FrameFormat customFrameFormat{UART_DataBits::DB7, UART_Parity::EVEN,
                                      UART_StopBits::SB2};
 
