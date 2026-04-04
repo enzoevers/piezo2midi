@@ -18,6 +18,7 @@ public:
 
   //=== ISPIMaster implementation ===//
   auto SelectSlave(uint8_t slaveIndex) -> bool override;
+  auto DeselectSlave(uint8_t slaveIndex) -> bool override;
   auto SendByte(const uint8_t byteToSend) -> uint8_t override;
   //=== End of ISPIMaster implementation ===//
 

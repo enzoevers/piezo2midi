@@ -14,4 +14,5 @@ target_link_libraries(TestingApp
     PRIVATE 
         DigitalIO
         Communication
+        ADC
 )

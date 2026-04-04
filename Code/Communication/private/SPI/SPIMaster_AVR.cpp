@@ -16,20 +16,22 @@ SPIMaster_AVR::SPIMaster_AVR(IIOProxy_SPI_AVR &ioProxy, SPIPinConfig pinConfig,
 
 auto SPIMaster_AVR::SelectSlave(uint8_t slaveIndex) -> bool {
   if (slaveIndex >= m_pinConfig.slaveCount) {
-    return false; // Invalid slave index
+    return false;
   }
 
-  // Set all SS pins high (deselect all slaves)
-  for (uint8_t i = 0; i < m_pinConfig.slaveCount; ++i) {
-    if (i == slaveIndex) {
-      continue; // Skip the selected slave for now
-    }
-    const auto &slavePin = m_pinConfig.SS_pins[i];
-    slavePin.digitalIO.SetState(slavePin.pin, PIN_STATE::HIGH);
-  }
-  // Set the selected slave's SS pin low to select it
   const auto &selectedSlavePin = m_pinConfig.SS_pins[slaveIndex];
   selectedSlavePin.digitalIO.SetState(selectedSlavePin.pin, PIN_STATE::LOW);
+
+  return true;
+}
+
+auto SPIMaster_AVR::DeselectSlave(uint8_t slaveIndex) -> bool {
+  if (slaveIndex >= m_pinConfig.slaveCount) {
+    return false;
+  }
+
+  const auto &selectedSlavePin = m_pinConfig.SS_pins[slaveIndex];
+  selectedSlavePin.digitalIO.SetState(selectedSlavePin.pin, PIN_STATE::HIGH);
 
   return true;
 }
