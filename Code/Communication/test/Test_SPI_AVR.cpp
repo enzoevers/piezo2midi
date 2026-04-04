@@ -480,28 +480,65 @@ TEST_F(Test_SPI_AVR_fixture, SelectSlave_ReturnFalse_WhenSlaveIndexIsInvalid) {
   EXPECT_FALSE(m_spi_AVR->SelectSlave(2));
 }
 
-TEST_F(Test_SPI_AVR_fixture,
-       SelectSlave_ReturnTrueAndDriveSSPinLow_WhenSlaveIndexIsValid_Index0) {
+TEST_F(
+    Test_SPI_AVR_fixture,
+    SelectSlave_ReturnTrueAndDriveSSPinLow_DoesNotChangeOtherSlaveSelects_WhenSlaveIndexIsValid_Index0) {
   EXPECT_CALL(*m_mockDigitalIO,
               SetState(m_spiPinConfig->SS_pins[0].pin, PIN_STATE::LOW))
       .Times(1);
   EXPECT_CALL(*m_mockDigitalIO,
-              SetState(m_spiPinConfig->SS_pins[1].pin, PIN_STATE::HIGH))
-      .Times(1);
+              SetState(m_spiPinConfig->SS_pins[1].pin, testing::_))
+      .Times(0);
 
   EXPECT_TRUE(m_spi_AVR->SelectSlave(0));
 }
 
-TEST_F(Test_SPI_AVR_fixture,
-       SelectSlave_ReturnTrueAndDriveSSPinLow_WhenSlaveIndexIsValid_Index1) {
+TEST_F(
+    Test_SPI_AVR_fixture,
+    SelectSlave_ReturnTrueAndDriveSSPinLow_DoesNotChangeOtherSlaveSelects_WhenSlaveIndexIsValid_Index1) {
   EXPECT_CALL(*m_mockDigitalIO,
-              SetState(m_spiPinConfig->SS_pins[0].pin, PIN_STATE::HIGH))
-      .Times(1);
+              SetState(m_spiPinConfig->SS_pins[0].pin, testing::_))
+      .Times(0);
   EXPECT_CALL(*m_mockDigitalIO,
               SetState(m_spiPinConfig->SS_pins[1].pin, PIN_STATE::LOW))
       .Times(1);
 
   EXPECT_TRUE(m_spi_AVR->SelectSlave(1));
+}
+
+//==============================
+// DeselectSlave(...)
+//==============================
+
+TEST_F(Test_SPI_AVR_fixture,
+       DeselectSlave_ReturnFalse_WhenSlaveIndexIsInvalid) {
+  EXPECT_FALSE(m_spi_AVR->DeselectSlave(2));
+}
+
+TEST_F(
+    Test_SPI_AVR_fixture,
+    DeselectSlave_ReturnTrueAndDriveSSPinHigh_DoesNotChangeOtherSlaveSelects_WhenSlaveIndexIsValid_Index0) {
+  EXPECT_CALL(*m_mockDigitalIO,
+              SetState(m_spiPinConfig->SS_pins[0].pin, PIN_STATE::HIGH))
+      .Times(1);
+  EXPECT_CALL(*m_mockDigitalIO,
+              SetState(m_spiPinConfig->SS_pins[1].pin, testing::_))
+      .Times(0);
+
+  EXPECT_TRUE(m_spi_AVR->DeselectSlave(0));
+}
+
+TEST_F(
+    Test_SPI_AVR_fixture,
+    DeselectSlave_ReturnTrueAndDriveSSPinHigh_DoesNotChangeOtherSlaveSelects_WhenSlaveIndexIsValid_Index1) {
+  EXPECT_CALL(*m_mockDigitalIO,
+              SetState(m_spiPinConfig->SS_pins[0].pin, testing::_))
+      .Times(0);
+  EXPECT_CALL(*m_mockDigitalIO,
+              SetState(m_spiPinConfig->SS_pins[1].pin, PIN_STATE::HIGH))
+      .Times(1);
+
+  EXPECT_TRUE(m_spi_AVR->DeselectSlave(1));
 }
 
 //==============================

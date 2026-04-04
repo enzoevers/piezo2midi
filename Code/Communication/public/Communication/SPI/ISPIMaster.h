@@ -15,6 +15,13 @@ public:
   /// selected, false otherwise.
   virtual auto SelectSlave(uint8_t slaveIndex) -> bool = 0;
 
+  /// @brief Delects the slave device with the given index, effectively ending
+  /// communication
+  /// @param slaveIndex
+  /// @return  True if the slave index is valid and the slave is successfully
+  /// deselected, false otherwise.
+  virtual auto DeselectSlave(uint8_t slaveIndex) -> bool = 0;
+
   /// @brief Sends a byte to the currently selected slave and returns the byte
   /// received from the slave during the transmission.
   /// @param byteToSend
