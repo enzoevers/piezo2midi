@@ -8,6 +8,7 @@ add_executable(TestADC ${SOURCES})
 target_link_libraries(TestADC
     PRIVATE
         ADC
+        Communication_Mocks
         GTest::gtest_main)
 
 gtest_discover_tests(TestADC)

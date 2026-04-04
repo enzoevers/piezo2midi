@@ -15,16 +15,16 @@ target_include_directories(ADC PUBLIC
     $<INSTALL_INTERFACE:sdk/include>
 )
 
+target_link_libraries(ADC
+    PRIVATE
+        Communication)
+
 target_sources(ADC
     PUBLIC
         ${PUBLIC_SOURCES}
     PRIVATE
         ${PRIVATE_SOURCES}
 )
-
-target_link_libraries(ADC
-    PRIVATE
-        Communication)
 
 if(BUILD_TESTS)
     add_subdirectory(test)
