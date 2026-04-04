@@ -9,6 +9,7 @@ target_link_libraries(TestCommunication
     PRIVATE
         Communication
         Communication_Mocks
+        DigitalIO_Mocks
         GTest::gtest_main)
 
 gtest_discover_tests(TestCommunication)
