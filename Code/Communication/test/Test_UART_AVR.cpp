@@ -9,6 +9,55 @@ public:
   Test_UART_AVR_fixture() {
     m_mockIOProxy = std::make_unique<Mock_IOProxy_UART_AVR>();
     m_uart_AVR = std::make_unique<UART_AVR>(*m_mockIOProxy);
+
+    SetupReadDefineMocks();
+  }
+
+  void SetupReadDefineMocks() {
+    // UCSRnA
+    ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_RXCn))
+        .WillByDefault(
+            testing::Return(7)); // Assume that DEF_RXCn is bit 7 in UCSRnA
+    ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_UDREn))
+        .WillByDefault(
+            testing::Return(5)); // Assume that DEF_UDREn is bit 5 in UCSRnA
+    ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_U2Xn))
+        .WillByDefault(
+            testing::Return(1)); // Assume that DEF_U2Xn is bit 1 in UCSRnA
+
+    // UCSRnB
+    ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_RXENn))
+        .WillByDefault(
+            testing::Return(4)); // Assume that DEF_RXENn is bit 4 in UCSRnB
+    ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_TXENn))
+        .WillByDefault(
+            testing::Return(3)); // Assume that DEF_TXENn is bit 3 in UCSRnB
+    ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_UCSZn2))
+        .WillByDefault(
+            testing::Return(2)); // Assume that DEF_UCSZn2 is bit 2 in UCSRnB
+
+    // UCSRnC
+    ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_UMSELn1))
+        .WillByDefault(
+            testing::Return(7)); // Assume that DEF_UMSELn1 is bit 7 in UCSRnC
+    ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_UMSELn0))
+        .WillByDefault(
+            testing::Return(6)); // Assume that DEF_UMSELn0 is bit 6 in UCSRnC
+    ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_UPMn1))
+        .WillByDefault(
+            testing::Return(5)); // Assume that DEF_UPMn1 is bit 5 in UCSRnC
+    ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_UPMn0))
+        .WillByDefault(
+            testing::Return(4)); // Assume that DEF_UPMn0 is bit 4 in UCSRnC
+    ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_USBSn))
+        .WillByDefault(
+            testing::Return(3)); // Assume that DEF_USBSn is bit 3 in UCSRnC
+    ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_UCSZn1))
+        .WillByDefault(
+            testing::Return(2)); // Assume that DEF_UCSZn1 is bit 2 in UCSRnC
+    ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_UCSZn0))
+        .WillByDefault(
+            testing::Return(1)); // Assume that DEF_UCSZn0 is bit 1 in UCSRnC
   }
 
   std::unique_ptr<Mock_IOProxy_UART_AVR> m_mockIOProxy;
@@ -52,14 +101,11 @@ TEST_F(Test_UART_AVR_fixture,
        SetBaudRate_SetsCorrectPrescaler_for9600BaudAt16MHz) {
   ON_CALL(*m_mockIOProxy, ReadRegister(UART_AVR_RegisterEnum::REG_UCSRnA))
       .WillByDefault(testing::Return(0xFF));
-  ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_U2Xn))
-      .WillByDefault(
-          testing::Return(4)); // Assume that DEF_U2Xn is bit 4 in UCSRnA
 
   static constexpr uint8_t expectedUBRRnH = 0;
   static constexpr uint8_t expectedUBRRnL = 0b0110'0111; // 103 in decimal
   static constexpr uint8_t expectedUSARnA =
-      0b1110'1111; // Check that the U2X bit is set to 0
+      0b1111'1101; // Check that the U2X bit is set to 0
 
   EXPECT_CALL(*m_mockIOProxy,
               WriteRegister(UART_AVR_RegisterEnum::REG_UBRRnH, expectedUBRRnH))
@@ -79,14 +125,11 @@ TEST_F(Test_UART_AVR_fixture,
        SetBaudRate_SetsCorrectPrescaler_for115200BaudAt16MHz) {
   ON_CALL(*m_mockIOProxy, ReadRegister(UART_AVR_RegisterEnum::REG_UCSRnA))
       .WillByDefault(testing::Return(0x00));
-  ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_U2Xn))
-      .WillByDefault(
-          testing::Return(2)); // Assume that DEF_U2Xn is bit 2 in UCSRnA
 
   static constexpr uint8_t expectedUBRRnH = 0;
   static constexpr uint8_t expectedUBRRnL = 0b0001'0000; // 16 in decimal
   static constexpr uint8_t expectedUSARnA =
-      0b0000'0100; // Check that the U2X bit is set to 1
+      0b0000'0010; // Check that the U2X bit is set to 1
 
   EXPECT_CALL(*m_mockIOProxy,
               WriteRegister(UART_AVR_RegisterEnum::REG_UBRRnH, expectedUBRRnH))
@@ -137,16 +180,6 @@ TEST_F(Test_UART_AVR_fixture, SetFrameFormat_UpdatesFrameFormat_DataBits) {
   ON_CALL(*m_mockIOProxy, ReadRegister(UART_AVR_RegisterEnum::REG_UCSRnC))
       .WillByDefault(testing::Return(0b0000'0110));
 
-  ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_UCSZn2))
-      .WillByDefault(
-          testing::Return(2)); // Assume that DEF_UCSZn2 is bit 2 in UCSRnB
-  ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_UCSZn1))
-      .WillByDefault(
-          testing::Return(2)); // Assume that DEF_UCSZn1 is bit 2 in UCSRnC
-  ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_UCSZn0))
-      .WillByDefault(
-          testing::Return(1)); // Assume that DEF_UCSZn0 is bit 1 in UCSRnC
-
   static constexpr uint8_t expectedUCSRnBValue = 0b0000'0000;
   static constexpr uint8_t expectedUCSRnCValue = 0b0000'0010;
 
@@ -169,13 +202,6 @@ TEST_F(Test_UART_AVR_fixture, SetFrameFormat_UpdatesFrameFormat_Parity) {
   ON_CALL(*m_mockIOProxy, ReadRegister(UART_AVR_RegisterEnum::REG_UCSRnC))
       .WillByDefault(testing::Return(0b0000'0110));
 
-  ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_UPMn1))
-      .WillByDefault(
-          testing::Return(5)); // Assume that DEF_UPMn1 is bit 5 in UCSRnC
-  ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_UPMn0))
-      .WillByDefault(
-          testing::Return(4)); // Assume that DEF_UPMn0 is bit 4 in UCSRnC
-
   static constexpr uint8_t expectedUCSRnCValue = 0b0010'0110;
 
   UART_FrameFormat newFrameFormat = m_uart_AVR->GetFrameFormat();
@@ -196,10 +222,6 @@ TEST_F(Test_UART_AVR_fixture, SetFrameFormat_UpdatesFrameFormat_Parity) {
 TEST_F(Test_UART_AVR_fixture, SetFrameFormat_UpdatesFrameFormat_StopBits) {
   ON_CALL(*m_mockIOProxy, ReadRegister(UART_AVR_RegisterEnum::REG_UCSRnC))
       .WillByDefault(testing::Return(0b0000'0110));
-
-  ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_USBSn))
-      .WillByDefault(
-          testing::Return(3)); // Assume that DEF_USBSn is bit 3 in UCSRnC
 
   static constexpr uint8_t expectedUCSRnCValue = 0b0000'1110;
 
@@ -228,13 +250,6 @@ TEST_F(Test_UART_AVR_fixture, SetUARTMode_UpdatesUARTModeToSynchronous) {
           testing::Return(0xF0)); // UMSELn1 and UMSELn0 are bits 7 and 6
   std::cout << "Mocked ReadRegister for REG_UCSRnC to return 0xF0" << std::endl;
 
-  ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_UMSELn1))
-      .WillByDefault(
-          testing::Return(7)); // Assume that DEF_UMSELn1 is bit 7 in UCSRnC
-  ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_UMSELn0))
-      .WillByDefault(
-          testing::Return(6)); // Assume that DEF_UMSELn0 is bit 6 in UCSRnC
-
   static constexpr uint8_t expectedUSCRnCValue = 0b0111'0000;
 
   EXPECT_CALL(*m_mockIOProxy, WriteRegister(UART_AVR_RegisterEnum::REG_UCSRnC,
@@ -249,13 +264,6 @@ TEST_F(Test_UART_AVR_fixture, SetUARTMode_UpdatesUARTModeToAsynchronous) {
   ON_CALL(*m_mockIOProxy, ReadRegister(UART_AVR_RegisterEnum::REG_UCSRnC))
       .WillByDefault(
           testing::Return(0xF0)); // UMSELn1 and UMSELn0 are bits 7 and 6
-
-  ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_UMSELn1))
-      .WillByDefault(
-          testing::Return(7)); // Assume that DEF_UMSELn1 is bit 7 in UCSRnC
-  ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_UMSELn0))
-      .WillByDefault(
-          testing::Return(6)); // Assume that DEF_UMSELn0 is bit 6 in UCSRnC
 
   static constexpr uint8_t expectedUSCRnCValue = 0b0011'0000;
 
@@ -275,13 +283,6 @@ TEST_F(Test_UART_AVR_fixture, Enable_SetsRXENnAndTXENnBits) {
   ON_CALL(*m_mockIOProxy, ReadRegister(UART_AVR_RegisterEnum::REG_UCSRnB))
       .WillByDefault(testing::Return(0x00));
 
-  ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_RXENn))
-      .WillByDefault(
-          testing::Return(4)); // Assume that DEF_RXENn is bit 4 in UCSRnB
-  ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_TXENn))
-      .WillByDefault(
-          testing::Return(3)); // Assume that DEF_TXENn is bit 3 in UCSRnB
-
   static constexpr uint8_t expectedUCSRnBValue = 0b0001'1000;
 
   EXPECT_CALL(*m_mockIOProxy, WriteRegister(UART_AVR_RegisterEnum::REG_UCSRnB,
@@ -295,13 +296,6 @@ TEST_F(Test_UART_AVR_fixture,
        Enable_SetsRXENnAndTXENnBits_withoutAffectingOtherBits) {
   ON_CALL(*m_mockIOProxy, ReadRegister(UART_AVR_RegisterEnum::REG_UCSRnB))
       .WillByDefault(testing::Return(0b1000'0001));
-
-  ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_RXENn))
-      .WillByDefault(
-          testing::Return(4)); // Assume that DEF_RXENn is bit 4 in UCSRnB
-  ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_TXENn))
-      .WillByDefault(
-          testing::Return(3)); // Assume that DEF_TXENn is bit 3 in UCSRnB
 
   static constexpr uint8_t expectedUCSRnBValue = 0b1001'1001;
 
@@ -320,13 +314,6 @@ TEST_F(Test_UART_AVR_fixture, Disable_ClearsRXENnAndTXENnBits) {
   ON_CALL(*m_mockIOProxy, ReadRegister(UART_AVR_RegisterEnum::REG_UCSRnB))
       .WillByDefault(testing::Return(0b0001'1000));
 
-  ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_RXENn))
-      .WillByDefault(
-          testing::Return(4)); // Assume that DEF_RXENn is bit 4 in UCSRnB
-  ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_TXENn))
-      .WillByDefault(
-          testing::Return(3)); // Assume that DEF_TXENn is bit 3 in UCSRnB
-
   static constexpr uint8_t expectedUCSRnBValue = 0b0000'0000;
 
   EXPECT_CALL(*m_mockIOProxy, WriteRegister(UART_AVR_RegisterEnum::REG_UCSRnB,
@@ -340,13 +327,6 @@ TEST_F(Test_UART_AVR_fixture,
        Disable_ClearsRXENnAndTXENnBits_withoutAffectingOtherBits) {
   ON_CALL(*m_mockIOProxy, ReadRegister(UART_AVR_RegisterEnum::REG_UCSRnB))
       .WillByDefault(testing::Return(0b1001'1001));
-
-  ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_RXENn))
-      .WillByDefault(
-          testing::Return(4)); // Assume that DEF_RXENn is bit 4 in UCSRnB
-  ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_TXENn))
-      .WillByDefault(
-          testing::Return(3)); // Assume that DEF_TXENn is bit 3 in UCSRnB
 
   static constexpr uint8_t expectedUCSRnBValue = 0b1000'0001;
 
@@ -365,10 +345,7 @@ TEST_F(Test_UART_AVR_fixture, SendByte_ReadsUDREnBitBeforeSending) {
   // Set UDREn to 1 to avoid an infinite loop in SendByte() while waiting for
   // the transmit buffer to be ready.
   ON_CALL(*m_mockIOProxy, ReadRegister(UART_AVR_RegisterEnum::REG_UCSRnA))
-      .WillByDefault(testing::Return(0b0001'0000));
-  ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_UDREn))
-      .WillByDefault(
-          testing::Return(4)); // Assume that DEF_UDREn is bit 4 in UCSRnA
+      .WillByDefault(testing::Return(0b0010'0000));
 
   static constexpr uint8_t byteToSend = 0xAB;
 
@@ -395,9 +372,6 @@ TEST_F(Test_UART_AVR_fixture, SendByte_ReadsUDREnBitBeforeSending) {
 TEST_F(Test_UART_AVR_fixture, ByteAvailable_ReturnsFalseWhenNoByteAvailable) {
   ON_CALL(*m_mockIOProxy, ReadRegister(UART_AVR_RegisterEnum::REG_UCSRnA))
       .WillByDefault(testing::Return(0b0000'0000));
-  ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_RXCn))
-      .WillByDefault(
-          testing::Return(7)); // Assume that DEF_RXCn is bit 7 in UCSRnA
 
   {
     testing::InSequence seq;
@@ -414,9 +388,6 @@ TEST_F(Test_UART_AVR_fixture, ByteAvailable_ReturnsFalseWhenNoByteAvailable) {
 TEST_F(Test_UART_AVR_fixture, ByteAvailable_ReturnsTrueWhenByteAvailable) {
   ON_CALL(*m_mockIOProxy, ReadRegister(UART_AVR_RegisterEnum::REG_UCSRnA))
       .WillByDefault(testing::Return(0b1000'0000));
-  ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_RXCn))
-      .WillByDefault(
-          testing::Return(7)); // Assume that DEF_RXCn is bit 7 in UCSRnA
 
   {
     testing::InSequence seq;
@@ -438,9 +409,6 @@ TEST_F(Test_UART_AVR_fixture,
        ReadByte_NonBlocking_ReturnsReceivedByteIfAvailable) {
   ON_CALL(*m_mockIOProxy, ReadRegister(UART_AVR_RegisterEnum::REG_UCSRnA))
       .WillByDefault(testing::Return(0b1000'0000));
-  ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_RXCn))
-      .WillByDefault(
-          testing::Return(7)); // Assume that DEF_RXCn is bit 7 in UCSRnA
 
   static constexpr uint8_t expectedByte = 0xAB;
   ON_CALL(*m_mockIOProxy, ReadRegister(UART_AVR_RegisterEnum::REG_UDRn))
@@ -463,10 +431,6 @@ TEST_F(Test_UART_AVR_fixture,
 TEST_F(Test_UART_AVR_fixture, ReadByte_NonBlocking_Returns0IfNoByteAvailable) {
   ON_CALL(*m_mockIOProxy, ReadRegister(UART_AVR_RegisterEnum::REG_UCSRnA))
       .WillByDefault(testing::Return(0b0000'0000));
-
-  ON_CALL(*m_mockIOProxy, ReadDefine(UART_AVR_DefineEnum::DEF_RXCn))
-      .WillByDefault(
-          testing::Return(7)); // Assume that DEF_RXCn is bit 7 in UCSRnA
 
   static constexpr uint8_t expectedByte = 0xAB;
   ON_CALL(*m_mockIOProxy, ReadRegister(UART_AVR_RegisterEnum::REG_UDRn))
