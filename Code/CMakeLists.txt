@@ -41,6 +41,7 @@ add_subdirectory(IOProxy)
 add_subdirectory(DigitalIO)
 add_subdirectory(Communication)
 add_subdirectory(ADC)
+add_subdirectory(MIDI)
 #add_subdirectory(Instrument)
 
 

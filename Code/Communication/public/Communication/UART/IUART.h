@@ -1,5 +1,7 @@
 #pragma once
 
+#include <stdint.h>
+
 class IUART {
 public:
 #ifndef __AVR__
