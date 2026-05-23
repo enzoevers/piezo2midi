@@ -15,4 +15,6 @@ target_link_libraries(TestingApp
         DigitalIO
         Communication
         ADC
+        Timing
+        Interrupt
 )

@@ -22,7 +22,7 @@ add_definitions(
 )
 
 add_link_options(-mmcu=${AVR_MCU})
-add_compile_options(-mmcu=${AVR_MCU})
+add_compile_options(-mmcu=${AVR_MCU} -O3)
 set(CMAKE_EXE_LINKER_FLAGS -mmcu=${AVR_MCU})
 
 # https://cmake.org/cmake/help/latest/manual/cmake-toolchains.7.html#cross-compiling-for-linux
