@@ -42,6 +42,8 @@ add_subdirectory(DigitalIO)
 add_subdirectory(Communication)
 add_subdirectory(ADC)
 add_subdirectory(MIDI)
+add_subdirectory(Timing)
+add_subdirectory(Interrupt)
 #add_subdirectory(Instrument)
 
 

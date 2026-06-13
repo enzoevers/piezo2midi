@@ -9,8 +9,17 @@
 
 #include "ADC/MCP3008/MCP3008.h"
 
+#include "Timing/IOProxy_Timing_8bit_AVR.h"
+#include "Timing/Timing_8bit_AVR.h"
+
+#include "Interrupt/AVR_iom328p/InterruptRegistration.h"
+#include "Interrupt/AtomicOperation.h"
+#include "Interrupt/GlobalInterruptControl.h"
+
 #include <stddef.h>
 #include <stdio.h>
+
+#include <avr/interrupt.h>
 
 int main() {
   IOProxy_DigitalIO_AVR ioProxy_digitialIO_bankD(BANK_LETTER::D);
@@ -39,12 +48,30 @@ int main() {
 
   MCP3008 mcp3008(spiMaster0);
 
+  const int OCRAPin = 6; // OC0A pin is pin 6 on bank D on the ATmega328P
+  digitalIO_D.SetMode(OCRAPin, PIN_MODE::OUTPUT);
+  // Also uncomment the marking of coma0Mask in SetupTimer(...)
+
+  IOProxy_Timing_8bit_AVR ioProxy_timer0(0);
+  AtomicOperation atomicOperation;
+  GlobalInterruptControl globalInterruptControl;
+  Timing_8bit_AVR timing(ioProxy_timer0, atomicOperation,
+                         globalInterruptControl);
+  auto timer0CompaHandler = [&timing]() { timing.TimerInterruptHandler(); };
+  g_interruptRegistration_AVR_iom328p.SetInterruptHandler(
+      INTERRUPT_VECTORS_iom328p::IV_TIMER0_COMPA,
+      TypeErasedCallable::Bind(timer0CompaHandler));
+  timing.SetupTimer(1000);
+  timing.StartTimer();
+
   const char message[] =
       "Send 'l' to turn off the LED\n\rSend 'h' to turn on the LED\n\r";
 
   for (size_t i = 0; message[i] != '\0'; ++i) {
     uart0.SendByte(message[i]);
   }
+
+  globalInterruptControl.EnableGlobalInterrupts();
 
   while (true) {
     if (uart0.ByteAvailable()) {
@@ -58,7 +85,15 @@ int main() {
 
       if (charReceived == 'l') {
         digitalIO_D.SetState(pinLED, PIN_STATE::LOW);
+        timing.Delay_us(750'000);
+        digitalIO_D.SetState(pinLED, PIN_STATE::HIGH);
+        timing.Delay_us(500'000);
+        digitalIO_D.SetState(pinLED, PIN_STATE::LOW);
       } else if (charReceived == 'h') {
+        digitalIO_D.SetState(pinLED, PIN_STATE::HIGH);
+        timing.Delay_us(750'000);
+        digitalIO_D.SetState(pinLED, PIN_STATE::LOW);
+        timing.Delay_us(500'000);
         digitalIO_D.SetState(pinLED, PIN_STATE::HIGH);
       }
 
