@@ -32,37 +32,64 @@ $ ./format.sh --in-place
 
 ## Build and run unit tests
 
-```ps1
-> .\Scripts\DownloadAndInstallMsys.ps1 # For make.exe
-> .\Scripts\DownloadAvrToolchain.ps1 # for avr-gcc and avr-g++
-> .\Scripts\UpdatePathWithAvrToolchain.ps1
-```
+```sh
+$ cd <root of this repo>
 
-```ps1
-> cd <root of this repo>
-
-> Set-ExecutionPolicy Unrestricted -Scope CurrentUse
-
-> cmake -S ./Code -B ./build -DBUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Debug
-> cmake --build ./build --config Debug
-> ctest --test-dir ./build --output-on-failure
+$ cmake -S ./Code -B ./build -DBUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Debug
+$ cmake --build ./build --config Debug
+$ ctest --test-dir ./build --output-on-failure
 ```
 
 ## AVR toolchain
 
 Getting all the required tools to build and flash the code:
 
+```sh
+$ cd <root of this repo>
+
+$ python ./Scripts/DownloadAndInstallMsys.py
+$ python ./Scripts/DownloadAvrToolchain.py
+$ python ./Scripts/DownloadAvrdude.py # For uploading the firmware
+```
+
+Then update your PATH
+
+For bash/shell:
+
+```sh
+$ eval "$(python ./Scripts/UpdatePathWithAvrToolchain.py --print-command --shell bash)"
+```
+
+For powershell:
+
 ```ps1
-> cd <root of this repo>
+> Invoke-Expression "$(python ./Scripts/UpdatePathWithAvrToolchain.py --print-command --shell powershell)"
+```
 
-> Set-ExecutionPolicy Unrestricted -Scope CurrentUse
+For command prompt:
 
-> .\Scripts\DownloadAvrToolchain.ps1
-> .\Scripts\UpdatePathWithAvrToolchain.ps1
-> .\Scripts\DownloadAvrdude.ps1
+```cmd
+> for /f "delims=" %i in ('python .\Scripts\UpdatePathWithAvrToolchain.py --print-command --shell cmd') do %i
 ```
 
 Building the code (for the arduino uno in this example):
+
+Bash:
+
+```sh
+# Still being root of this repo
+
+$ currentPath=$(pwd)
+$ cmake -G "Unix Makefiles" -S ./Code -B ./build \
+    -DCMAKE_TOOLCHAIN_FILE="$currentPath/Code/CMake/AvrToolchain.cmake" \
+    -DAVR_MCU=atmega328p \
+    -DF_CPU=16000000L \
+    -DAVR_SYSROOT=$currentPath/avr-toolchain/avr8-gnu-toolchain/avr/ \
+    -DCMAKE_BUILD_TYPE=Debug
+$ cmake --build ./build --config Debug -- -j
+```
+
+Powershell:
 
 ```ps1
 # Still being root of this repo
@@ -72,23 +99,35 @@ Building the code (for the arduino uno in this example):
     -DCMAKE_TOOLCHAIN_FILE="$currentPath/Code/CMake/AvrToolchain.cmake" `
     -DAVR_MCU=atmega328p `
     -DF_CPU=16000000L `
-    -DAVR_SYSROOT=$currentPath/avr8-gnu-toolchain/avr/ `
+    -DAVR_SYSROOT=$currentPath/avr-toolchain/avr8-gnu-toolchain/avr/ `
     -DCMAKE_BUILD_TYPE=Debug
 > cmake --build ./build --config Debug -- -j
 ```
 
 To check the compiled assembly with the source code interleaved run:
 
-```ps1
-> avr-objdump -d -S .\build\TestingApp\TestingApp.elf
+```sh
+$ avr-objdump -d -S ./build/TestingApp/TestingApp.elf
 ```
 
 Upload the code (assuming the arduino is on COM3):
 
+Bash:
+
+```sh
+# Still being root of this repo
+
+$ ./avrdude/avrdude -c arduino -P COM3 \
+    -b 115200 -p atmega328p \
+    -D -U flash:w:./build/TestingApp/TestingApp.elf:e
+```
+
+Powershell:
+
 ```ps1
 # Still being root of this repo
 
-> avrdude/avrdude.exe -c arduino -P COM3 `
+> ./avrdude/avrdude -c arduino -P COM3 `
     -b 115200 -p atmega328p `
     -D -U flash:w:./build/TestingApp/TestingApp.elf:e
 ```
@@ -106,26 +145,26 @@ Use `Scripts/analyze_resource_usage.py` to generate a JSON report with:
 
 If you use a Python virtual environment, activate it first (from repo root):
 
-```ps1
-> python -m venv .venv
-> .\.venv\Scripts\Activate.ps1
-> pip install -r .\Scripts\requirements.txt
+```sh
+$ python -m venv .venv
+$ source ./.venv/Scripts/activate
+$ pip install -r ./Scripts/requirements.txt
 ```
 
 Generate the report (from repo root):
 
-```ps1
-> .\.venv\Scripts\python.exe .\Scripts\analyze_resource_usage.py `
-    --build-dir .\build `
-    --output .\build\resource_usage_report.json
+```sh
+$ ./.venv/Scripts/python ./Scripts/analyze_resource_usage.py \
+    --build-dir ./build \
+    --output ./build/resource_usage_report.json
 ```
 
 Include symbol sizes in the report:
 
-```ps1
-> .\.venv\Scripts\python.exe .\Scripts\analyze_resource_usage.py `
-    --build-dir .\build `
-    --output .\build\resource_usage_report.json `
+```sh
+$ ./.venv/Scripts/python ./Scripts/analyze_resource_usage.py \
+    --build-dir ./build \
+    --output ./build/resource_usage_report.json \
     --include-symbol-sizes
 ```
 
