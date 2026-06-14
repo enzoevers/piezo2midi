@@ -80,7 +80,7 @@ Building the code (for the arduino uno in this example):
 To check the compiled assembly with the source code interleaved run:
 
 ```ps1
-> avr-objdump -d -S .\build\TestingApp\TestingApp
+> avr-objdump -d -S .\build\TestingApp\TestingApp.elf
 ```
 
 Upload the code (assuming the arduino is on COM3):
@@ -90,10 +90,52 @@ Upload the code (assuming the arduino is on COM3):
 
 > avrdude/avrdude.exe -c arduino -P COM3 `
     -b 115200 -p atmega328p `
-    -D -U flash:w:./build/TestingApp/TestingApp:e
+    -D -U flash:w:./build/TestingApp/TestingApp.elf:e
 ```
 
 Now you can use, for example, [PuTTY](https://putty.org/index.html) to interact with the device over serial.
+
+## Resource usage report
+
+Use `Scripts/analyze_resource_usage.py` to generate a JSON report with:
+
+- Flash and RAM usage of the final application
+- Flash and RAM usage per library (or per module when no static libraries are present)
+- Biggest parts per library/module
+- Optional symbol-size breakdowns for deeper analysis
+
+If you use a Python virtual environment, activate it first (from repo root):
+
+```ps1
+> python -m venv .venv
+> .\.venv\Scripts\Activate.ps1
+> pip install -r .\Scripts\requirements.txt
+```
+
+Generate the report (from repo root):
+
+```ps1
+> .\.venv\Scripts\python.exe .\Scripts\analyze_resource_usage.py `
+    --build-dir .\build `
+    --output .\build\resource_usage_report.json
+```
+
+Include symbol sizes in the report:
+
+```ps1
+> .\.venv\Scripts\python.exe .\Scripts\analyze_resource_usage.py `
+    --build-dir .\build `
+    --output .\build\resource_usage_report.json `
+    --include-symbol-sizes
+```
+
+Useful options:
+
+- `--elf <path>`: analyze a specific ELF/executable
+- `--top <N>`: number of biggest parts listed per library/module
+- `--include-symbol-sizes`: add symbol-size analysis
+- `--symbol-tool <path-or-name>`: override symbol tool (`nm`) executable
+- `--symbols-top <N>`: number of biggest symbols kept per artifact/module
 
 # Virtual destructor issue
 

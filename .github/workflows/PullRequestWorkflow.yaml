@@ -22,16 +22,20 @@ on:
 
 jobs:
 
+###################################################
+# Step 1: Check formatting of source code
+###################################################
+
 #========================================
 # Checks
 #========================================
 
-  check_formatting:
+  check_formatting_cpp:
     runs-on: ubuntu-22.04
-    name: Check Formatting
+    name: Check Formatting CPP
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - run: |
           wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
           sudo add-apt-repository 'deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-18 main'
@@ -41,17 +45,44 @@ jobs:
           sudo ln -sf $(which clang-format-18) /usr/local/bin/clang-format
           sh ./Code/format.sh
 
+  check_formatting_python:
+    runs-on: windows-2022
+    name: Check Formatting Python
+    timeout-minutes: 15
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v6
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.13"
+      - name: Install dependencies in venv
+        run: |
+          python -m venv .venv
+          .\.venv\Scripts\Activate.ps1
+          pip install -r .\Scripts\requirements.txt
+      - name: Check Python formatting
+        run: 
+          .\Scripts\FormatPython.ps1 -CheckOnly
+
+
+###################################################
+# Step 2: Build and Test on Multiple Platforms
+###################################################
+
 #========================================
 # Windws MSVC Build
 #========================================
 
   build_windows_msvc:
-    needs: check_formatting
+    needs: check_formatting_cpp
     runs-on: windows-2022
     name: Windows MSVC Build
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set up CMake
         uses: jwlawson/actions-setup-cmake@v1.14
         with:
@@ -70,12 +101,12 @@ jobs:
 #========================================
 
   build_ubuntu_gcc:
-    needs: check_formatting
+    needs: check_formatting_cpp
     runs-on: ubuntu-22.04
     name: Ubuntu GCC Build
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: GCC version
         run: gcc --version
       - name: Configure CMake
@@ -90,12 +121,12 @@ jobs:
 #========================================
 
   build_ubuntu_clang:
-    needs: check_formatting
+    needs: check_formatting_cpp
     runs-on: ubuntu-22.04
     name: Ubuntu Clang Build
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Install Clang
         run: |
           sudo apt update
@@ -114,12 +145,12 @@ jobs:
 #========================================
 
   build_mac_arm_gcc:
-    needs: check_formatting
+    needs: check_formatting_cpp
     runs-on: macos-15
     name: Mac (arm) GCC Build
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Install GCC
         run: brew install gcc
       - name: GCC version
@@ -136,12 +167,12 @@ jobs:
 #========================================
 
   build_mac_arm_clang:
-    needs: check_formatting
+    needs: check_formatting_cpp
     runs-on: macos-15
     name: Mac (arm) Clang Build
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Clang version
         run: clang --version
       - name: Configure CMake
@@ -156,12 +187,12 @@ jobs:
 #========================================
 
   build_mac_intel_gcc:
-    needs: check_formatting
+    needs: check_formatting_cpp
     runs-on: macos-15-intel
     name: Mac (intel) GCC Build
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Install GCC
         run: brew install gcc
       - name: GCC version
@@ -178,12 +209,12 @@ jobs:
 #========================================
 
   build_mac_intel_clang:
-    needs: check_formatting
+    needs: check_formatting_cpp
     runs-on: macos-15-intel
     name: Mac (intel) Clang Build
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Clang version
         run: clang --version
       - name: Configure CMake
@@ -200,7 +231,7 @@ jobs:
 #========================================
 
   build_windows_avr:
-    needs: check_formatting
+    needs: check_formatting_cpp
     runs-on: windows-2022
     name: Windows AVR-GCC Cross Compile
     timeout-minutes: 30
@@ -208,7 +239,7 @@ jobs:
       run:
         shell: pwsh
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Install toolchain
         run: |
           .\Scripts\DownloadAvrToolchain.ps1
@@ -223,3 +254,48 @@ jobs:
           cmake -G "Unix Makefiles" -S ./Code -B ./build -DCMAKE_TOOLCHAIN_FILE="$currentPath/Code/CMake/AvrToolchain.cmake" -DAVR_MCU=atmega328p -DF_CPU=16000000L -DAVR_SYSROOT=$currentPath/avr8-gnu-toolchain/avr/ -DCMAKE_BUILD_TYPE=Release
       - name: Build
         run: cmake --build ./build --config Release -- -j
+      # Make the build folder available for the next step
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: avr-build-artifacts
+          path: ./build
+
+###################################################
+# Step 3: Check the size of the generated binary
+###################################################
+
+  resource_check_windows_avr:
+    needs: build_windows_avr
+    runs-on: windows-2022
+    name: Check Size of AVR Binary
+    timeout-minutes: 15
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install toolchain
+        run: |
+          .\Scripts\DownloadAvrToolchain.ps1
+          .\Scripts\UpdatePathWithAvrToolchain.ps1 -github_ci $true
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: avr-build-artifacts
+          path: ./build
+      - name: Check size of generated binary with analyze_resource_usage.py
+        run: |
+          python .\Scripts\analyze_resource_usage.py `
+            --build-dir .\build `
+            --output .\build\resource_usage_report.json `
+            --include-symbol-sizes
+      - name: Remove build artifacts
+        uses: geekyeggo/delete-artifact@v6
+        with:
+          name: avr-build-artifacts
+      - name: Upload resource usage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: avr-resource-usage-report
+          path: ./build/resource_usage_report.json

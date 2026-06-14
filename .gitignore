@@ -62,3 +62,8 @@ build/
 avr-toolchain/
 msys2-tool/
 avrdude/
+
+###############
+# Python
+###############
+__pycache__/
