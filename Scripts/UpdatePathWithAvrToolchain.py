@@ -1,5 +1,6 @@
 import argparse
 import os
+from pathlib import Path
 import sys
 import utils
 
@@ -21,6 +22,7 @@ def parse_args() -> argparse.Namespace:
         default=False,
         help="Print shell command to add toolchain paths to PATH in the calling shell",
     )
+    parser.add_argument("--toolchain-path", default=str((utils.get_project_root() / "avr-toolchain").resolve()))
     return parser.parse_args()
 
 
@@ -48,8 +50,7 @@ def windows_abs_path_to_unix_style(path: str) -> str:
 
 def main() -> int:
     args = parse_args()
-    project_root = utils.get_project_root()
-    toolchain_path = (project_root / "avr-toolchain").resolve()
+    toolchain_path = Path(args.toolchain_path).resolve()
 
     entries = [
         str(toolchain_path / "avr8-gnu-toolchain" / "bin"),

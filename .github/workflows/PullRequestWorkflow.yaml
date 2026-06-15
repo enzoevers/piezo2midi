@@ -20,6 +20,9 @@ on:
       - "**.h"
       - "**.hpp"
 
+env:
+  PYTHON_VERSION: "3.14"
+
 jobs:
 
 ###################################################
@@ -54,10 +57,9 @@ jobs:
         shell: pwsh
     steps:
       - uses: actions/checkout@v6
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/setup-python@v6
         with:
-          python-version: "3.13"
+          python-version: ${{ env.PYTHON_VERSION }}
       - name: Install dependencies in venv
         run: |
           python -m venv .venv
@@ -83,6 +85,9 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
       - name: Set up CMake
         uses: jwlawson/actions-setup-cmake@v1.14
         with:
@@ -107,6 +112,9 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
       - name: GCC version
         run: gcc --version
       - name: Configure CMake
@@ -127,6 +135,9 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
       - name: Install Clang
         run: |
           sudo apt update
@@ -151,6 +162,9 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
       - name: Install GCC
         run: brew install gcc
       - name: GCC version
@@ -173,6 +187,9 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
       - name: Clang version
         run: clang --version
       - name: Configure CMake
@@ -193,6 +210,9 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
       - name: Install GCC
         run: brew install gcc
       - name: GCC version
@@ -215,6 +235,9 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
       - name: Clang version
         run: clang --version
       - name: Configure CMake
@@ -240,13 +263,16 @@ jobs:
         shell: pwsh
     steps:
       - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
       - name: Install toolchain
         run: |
           python .\Scripts\DownloadAvrToolchain.py
           python .\Scripts\UpdatePathWithAvrToolchain.py --github-ci
       - name: Tool versions
         run: |
-          avr-gcc --version
+          avr-g++ --version
           make --version
       - name: Configure CMake
         run: |
@@ -258,23 +284,82 @@ jobs:
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: avr-build-artifacts
+          name: windows-avr-build-artifacts
           path: ./build
+
+#========================================
+# Ubuntu cross compile to Arduino using avr-gcc
+#========================================
+
+  build_ubuntu_avr:
+    needs: check_formatting_cpp
+    runs-on: ubuntu-22.04
+    name: Ubuntu AVR-GCC Cross Compile
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Install toolchain
+        run: |
+          python ./Scripts/DownloadAvrToolchain.py
+          python ./Scripts/UpdatePathWithAvrToolchain.py --github-ci
+      - name: Tool versions
+        run: |
+          avr-g++ --version
+          make --version
+      - name: Configure CMake
+        run: |
+          currentPath=$(pwd)
+          cmake -G "Unix Makefiles" -S ./Code -B ./build -DCMAKE_TOOLCHAIN_FILE="$currentPath/Code/CMake/AvrToolchain.cmake" -DAVR_MCU=atmega328p -DF_CPU=16000000L -DAVR_SYSROOT=$currentPath/avr-toolchain/avr8-gnu-toolchain/avr/ -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        run: cmake --build ./build --config Release -- -j
+      # Make the build folder available for the next step
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ubuntu-avr-build-artifacts
+          path: ./build
+
+#========================================
+# Ubuntu cross compile to Arduino using docker
+#========================================
+
+  build_ubuntu_avr_docker:
+    needs: check_formatting_cpp
+    runs-on: ubuntu-22.04
+    name: Ubuntu AVR-GCC Cross Compile using Docker
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+      - name: Set up Docker Compose
+        uses: docker/setup-compose-action@v2
+      - name: Run Docker container to build project
+        run: |
+          docker compose -f Docker/DockerCompose.yaml run --rm avr-cross-compiler-ubuntu-2604
 
 ###################################################
 # Step 3: Check the size of the generated binary
 ###################################################
 
+#========================================
+# Windows resource usage check
+#========================================
+
   resource_check_windows_avr:
     needs: build_windows_avr
     runs-on: windows-2022
-    name: Check Size of AVR Binary
+    name: Check Size of AVR binary from Windows build
     timeout-minutes: 15
     defaults:
       run:
         shell: pwsh
     steps:
       - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
       - name: Install toolchain
         run: |
           python .\Scripts\DownloadAvrToolchain.py
@@ -282,7 +367,7 @@ jobs:
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
-          name: avr-build-artifacts
+          name: windows-avr-build-artifacts
           path: ./build
       - name: Check size of generated binary with analyze_resource_usage.py
         run: |
@@ -293,9 +378,48 @@ jobs:
       - name: Remove build artifacts
         uses: geekyeggo/delete-artifact@v6
         with:
-          name: avr-build-artifacts
+          name: windows-avr-build-artifacts
       - name: Upload resource usage report
         uses: actions/upload-artifact@v4
         with:
-          name: avr-resource-usage-report
+          name: windows-avr-resource-usage-report
+          path: ./build/resource_usage_report.json
+
+#========================================
+# Ubuntu resource usage check
+#========================================
+
+  resource_check_ubuntu_avr:
+    needs: build_ubuntu_avr
+    runs-on: ubuntu-22.04
+    name: Check Size of AVR binary from Ubuntu build
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Install toolchain
+        run: |
+          python ./Scripts/DownloadAvrToolchain.py
+          python ./Scripts/UpdatePathWithAvrToolchain.py --github-ci
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: ubuntu-avr-build-artifacts
+          path: ./build
+      - name: Check size of generated binary with analyze_resource_usage.py
+        run: |
+          python ./Scripts/analyze_resource_usage.py \
+            --build-dir ./build \
+            --output ./build/resource_usage_report.json \
+            --include-symbol-sizes
+      - name: Remove build artifacts
+        uses: geekyeggo/delete-artifact@v6
+        with:
+          name: ubuntu-avr-build-artifacts
+      - name: Upload resource usage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: ubuntu-avr-resource-usage-report
           path: ./build/resource_usage_report.json

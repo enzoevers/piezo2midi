@@ -2,6 +2,16 @@ from pathlib import Path
 import shutil
 import subprocess
 import zipfile
+import tarfile
+import sys
+
+
+def is_windows() -> bool:
+    return sys.platform.startswith("win")
+
+
+def is_linux() -> bool:
+    return sys.platform.startswith("linux")
 
 
 def get_project_root() -> Path:
@@ -43,3 +53,24 @@ def extract_zip_strip_components(zip_path: Path, target_dir: Path, strip_compone
             destination.parent.mkdir(parents=True, exist_ok=True)
             with zip_ref.open(member, "r") as src, destination.open("wb") as dst:
                 shutil.copyfileobj(src, dst)
+
+
+def extract_tar_gz_strip_components(tar_path: Path, target_dir: Path, strip_components: int) -> None:
+    with tarfile.open(tar_path, "r:gz") as tar_ref:
+        for member in tar_ref.getmembers():
+            parts = Path(member.name).parts
+            if len(parts) <= strip_components:
+                continue
+
+            relative = Path(*parts[strip_components:])
+            destination = target_dir / relative
+
+            if member.isdir():
+                destination.mkdir(parents=True, exist_ok=True)
+                destination.chmod(member.mode)
+                continue
+
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            with tar_ref.extractfile(member) as src, destination.open("wb") as dst:
+                shutil.copyfileobj(src, dst)
+            destination.chmod(member.mode)
