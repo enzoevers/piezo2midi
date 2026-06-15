@@ -42,12 +42,19 @@ $ ctest --test-dir ./build --output-on-failure
 
 ## AVR toolchain
 
+### Build in Docker
+
+```sh
+$ docker-compose -f Docker/DockerCompose.yaml run --rm avr-cross-compiler-ubuntu-2604
+```
+
+### Build locally
+
 Getting all the required tools to build and flash the code:
 
 ```sh
 $ cd <root of this repo>
 
-$ python ./Scripts/DownloadAndInstallMsys.py
 $ python ./Scripts/DownloadAvrToolchain.py
 $ python ./Scripts/DownloadAvrdude.py # For uploading the firmware
 ```

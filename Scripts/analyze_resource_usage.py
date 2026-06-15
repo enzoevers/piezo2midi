@@ -246,14 +246,16 @@ def collect_build_metadata(build_dir: Path) -> Dict[str, object]:
     )
     CMakeCCompiler_path = next(Path(build_dir / "CMakeFiles").rglob("CMakeCCompiler.cmake", case_sensitive=True), None)
 
-    cache = parse_cmake_cache(CMakeCache_path)
-    cxx_cfg = parse_cmake_set_file(CMakeCXXCompiler_path) if CMakeCXXCompiler_path else {}
-    c_cfg = parse_cmake_set_file(CMakeCCompiler_path) if CMakeCCompiler_path else {}
-
     print("Using files for build metadata collection:")
     print(f"  CMakeCache.txt: {CMakeCache_path}")
     print(f"  CMakeCXXCompiler.cmake: {CMakeCXXCompiler_path}")
     print(f"  CMakeCCompiler.cmake: {CMakeCCompiler_path}")
+
+    cache = parse_cmake_cache(CMakeCache_path)
+    cxx_cfg = parse_cmake_set_file(CMakeCXXCompiler_path) if CMakeCXXCompiler_path else {}
+    c_cfg = parse_cmake_set_file(CMakeCCompiler_path) if CMakeCCompiler_path else {}
+
+    print("Parsed build metadata")
 
     c_compiler = cache.get("CMAKE_C_COMPILER") or c_cfg.get("CMAKE_C_COMPILER")
     cxx_compiler = cache.get("CMAKE_CXX_COMPILER") or cxx_cfg.get("CMAKE_CXX_COMPILER")

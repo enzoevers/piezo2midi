@@ -1,0 +1,11 @@
+services:
+  avr-cross-compiler-ubuntu-2604:
+    image: avr-cross-compiler-ubuntu-2604:latest
+    container_name: avr-cross-compiler-ubuntu-2604
+    build:
+      context: ../
+      dockerfile: Docker/Dockerfile.ubuntu2604
+    volumes:
+      - ../:/app
+    working_dir: /app
+    entrypoint: /app/Docker/entrypoint.sh

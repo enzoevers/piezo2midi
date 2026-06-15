@@ -1,0 +1,26 @@
+FROM ubuntu:26.04
+
+ARG avr8_toolchain_version="4.0.0.52"
+ARG cmake_version="4.3.3"
+
+LABEL version="0.0.1"
+
+COPY ./Scripts/ /Scripts/
+
+RUN apt update && apt install -y \
+    software-properties-common 
+
+RUN add-apt-repository ppa:deadsnakes/ppa && \
+    apt update && apt install -y \
+    build-essential \
+    curl \
+    python3.14
+
+RUN curl -LO https://github.com/Kitware/CMake/releases/download/v${cmake_version}/cmake-${cmake_version}-linux-x86_64.tar.gz && \
+    mkdir -p /cmake && \
+    tar -xzf cmake-${cmake_version}-linux-x86_64.tar.gz -C /cmake && \
+    rm cmake-${cmake_version}-linux-x86_64.tar.gz
+ENV PATH="/cmake/cmake-${cmake_version}-linux-x86_64/bin:${PATH}"
+
+RUN python3.14 ./Scripts/DownloadAvrToolchain.py --avr8-toolchain-version ${avr8_toolchain_version} --target-dir "/avr-toolchain"
+ENV PATH="/avr-toolchain/avr8-gnu-toolchain/bin:/avr-toolchain/avr8-gnu-toolchain/avr/bin:${PATH}"
