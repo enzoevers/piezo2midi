@@ -19,4 +19,5 @@ target_link_libraries(TestingApp
         ADC
         Timing
         Interrupt
+        PiezoPeakDetector
 )

@@ -150,18 +150,18 @@ Use `Scripts/analyze_resource_usage.py` to generate a JSON report with:
 - Biggest parts per library/module
 - Optional symbol-size breakdowns for deeper analysis
 
-If you use a Python virtual environment, activate it first (from repo root):
+If you use a Python virtual environment, activate it first (from repo root). Note that in different platforms the paths inside the virtual env might be different.
 
 ```sh
 $ python -m venv .venv
-$ source ./.venv/Scripts/activate
+$ source ./.venv/bin/activate
 $ pip install -r ./Scripts/requirements.txt
 ```
 
 Generate the report (from repo root):
 
 ```sh
-$ ./.venv/Scripts/python ./Scripts/analyze_resource_usage.py \
+$ python ./Scripts/analyze_resource_usage.py \
     --build-dir ./build \
     --output ./build/resource_usage_report.json
 ```
@@ -169,7 +169,7 @@ $ ./.venv/Scripts/python ./Scripts/analyze_resource_usage.py \
 Include symbol sizes in the report:
 
 ```sh
-$ ./.venv/Scripts/python ./Scripts/analyze_resource_usage.py \
+$ python ./Scripts/analyze_resource_usage.py \
     --build-dir ./build \
     --output ./build/resource_usage_report.json \
     --include-symbol-sizes

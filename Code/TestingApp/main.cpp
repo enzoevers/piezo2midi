@@ -16,10 +16,10 @@
 #include "Interrupt/AtomicOperation.h"
 #include "Interrupt/GlobalInterruptControl.h"
 
+#include "PiezoPeakDetector/PiezoPeakDetector.h"
+
 #include <stddef.h>
 #include <stdio.h>
-
-#include <avr/interrupt.h>
 
 int main() {
   IOProxy_DigitalIO_AVR ioProxy_digitialIO_bankD(BANK_LETTER::D);
@@ -64,6 +64,17 @@ int main() {
   timing.SetupTimer(1000);
   timing.StartTimer();
 
+  PiezoPeakDetector piezoPeakDetector_ch0;
+  PiezoPeakDetector piezoPeakDetector_ch1;
+  PiezoPeakDetector piezoPeakDetector_ch7;
+
+  PiezoPeakDetectorSettings settings{
+      .scanTime_us = 1000, .maskTime_us = 500, .threshold = 200};
+
+  piezoPeakDetector_ch0.SetSettings(settings);
+  piezoPeakDetector_ch1.SetSettings(settings);
+  piezoPeakDetector_ch7.SetSettings(settings);
+
   const char message[] =
       "Send 'l' to turn off the LED\n\rSend 'h' to turn on the LED\n\r";
 
@@ -97,6 +108,8 @@ int main() {
         digitalIO_D.SetState(pinLED, PIN_STATE::HIGH);
       }
 
+      const auto currentTime_us =
+          timing.GetInterruptCount() * timing.GetTimerPeriod_us();
       spiMaster0.DeselectSlave(0);
       spiMaster0.SelectSlave(0);
       const uint16_t adcValueChannel0 = mcp3008.ReadChannel(0);
@@ -106,6 +119,13 @@ int main() {
       spiMaster0.DeselectSlave(0);
       spiMaster0.SelectSlave(0);
       const uint16_t adcValueChannel7 = mcp3008.ReadChannel(7);
+
+      piezoPeakDetector_ch0.ProcessSample(PiezoSample{
+          .timestamp_us = currentTime_us, .value = adcValueChannel0});
+      piezoPeakDetector_ch1.ProcessSample(PiezoSample{
+          .timestamp_us = currentTime_us, .value = adcValueChannel1});
+      piezoPeakDetector_ch7.ProcessSample(PiezoSample{
+          .timestamp_us = currentTime_us, .value = adcValueChannel7});
 
       const uint32_t vref_mv =
           5000; // Assume a 5V reference voltage for the ADC
