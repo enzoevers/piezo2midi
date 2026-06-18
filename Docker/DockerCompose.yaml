@@ -8,4 +8,4 @@ services:
     volumes:
       - ../:/app
     working_dir: /app
-    entrypoint: /app/Docker/entrypoint.sh
+    entrypoint: ["/bin/bash", "-c", "cp /app/Docker/entrypoint.sh /tmp/entrypoint.sh && dos2unix /tmp/entrypoint.sh && exec /tmp/entrypoint.sh"]

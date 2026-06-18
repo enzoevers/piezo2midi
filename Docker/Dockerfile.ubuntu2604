@@ -14,7 +14,9 @@ RUN add-apt-repository ppa:deadsnakes/ppa && \
     apt update && apt install -y \
     build-essential \
     curl \
-    python3.14
+    python3.14 \
+    dos2unix && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN curl -LO https://github.com/Kitware/CMake/releases/download/v${cmake_version}/cmake-${cmake_version}-linux-x86_64.tar.gz && \
     mkdir -p /cmake && \

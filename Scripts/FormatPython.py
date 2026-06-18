@@ -45,7 +45,6 @@ def main() -> int:
 
     black_cmd.append(str(target_dir))
 
-    print(f"Formatting Python files under {target_dir}")
     result = subprocess.run(black_cmd, check=False)
 
     if result.returncode == 0:
