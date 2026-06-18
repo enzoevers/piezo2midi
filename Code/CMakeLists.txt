@@ -45,6 +45,7 @@ add_subdirectory(MIDI)
 add_subdirectory(Timing)
 add_subdirectory(Interrupt)
 add_subdirectory(PiezoPeakDetector)
+add_subdirectory(ChannelMapping)
 #add_subdirectory(Instrument)
 
 
