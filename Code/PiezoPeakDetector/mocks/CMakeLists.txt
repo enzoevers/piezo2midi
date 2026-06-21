@@ -15,5 +15,6 @@ target_sources(PiezoPeakDetector_Mocks INTERFACE
 )
 
 target_link_libraries(PiezoPeakDetector_Mocks INTERFACE
+    PiezoPeakDetector
     GTest::gmock
 )
