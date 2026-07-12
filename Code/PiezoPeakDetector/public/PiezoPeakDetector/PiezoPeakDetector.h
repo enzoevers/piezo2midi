@@ -21,9 +21,12 @@ public:
 
   auto
   ProcessSample(PiezoSample sample) -> PiezoSampleProcessingResult override;
+
+  void Reset() override;
   //=== End of IPiezoPeakDetector implementation ===//
 
   auto GetState() const -> PiezoPeakDetectorState;
+  auto GetContext() const -> const PiezoPeakDetectorStateContext &;
 
 private:
   PiezoPeakDetectorStateContext m_context{};

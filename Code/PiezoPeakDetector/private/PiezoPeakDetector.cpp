@@ -19,6 +19,11 @@ auto PiezoPeakDetector::GetSettings() const -> PiezoPeakDetectorSettings {
   return m_context.m_settings;
 }
 
+auto PiezoPeakDetector::GetContext() const
+    -> const PiezoPeakDetectorStateContext & {
+  return m_context;
+}
+
 auto PiezoPeakDetector::ProcessSample(PiezoSample sample)
     -> PiezoSampleProcessingResult {
 
@@ -45,6 +50,12 @@ auto PiezoPeakDetector::ProcessSample(PiezoSample sample)
   }
 
   return m_context.m_currentResult;
+}
+
+void PiezoPeakDetector::Reset() {
+  m_currentState = &m_state_idle;
+  m_context.ResetState();
+  m_currentState->Enter();
 }
 
 auto PiezoPeakDetector::GetState() const -> PiezoPeakDetectorState {
