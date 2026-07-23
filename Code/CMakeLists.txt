@@ -46,9 +46,8 @@ add_subdirectory(Timing)
 add_subdirectory(Interrupt)
 add_subdirectory(PiezoPeakDetector)
 add_subdirectory(ChannelMapping)
-#add_subdirectory(Instrument)
-
 
 if(NOT BUILD_TESTS)
     add_subdirectory(TestingApp)
+    add_subdirectory(InstrumentApp)
 endif()

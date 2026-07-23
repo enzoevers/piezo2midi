@@ -163,6 +163,7 @@ Generate the report (from repo root):
 ```sh
 $ python ./Scripts/analyze_resource_usage.py \
     --build-dir ./build \
+    --elf ./build/InstrumentApp/InstrumentApp.elf \
     --output ./build/resource_usage_report.json
 ```
 
@@ -171,6 +172,7 @@ Include symbol sizes in the report:
 ```sh
 $ python ./Scripts/analyze_resource_usage.py \
     --build-dir ./build \
+    --elf ./build/InstrumentApp/InstrumentApp.elf \
     --output ./build/resource_usage_report.json \
     --include-symbol-sizes
 ```

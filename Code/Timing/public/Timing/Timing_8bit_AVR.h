@@ -13,6 +13,10 @@ public:
   ~Timing_8bit_AVR() = default;
 
   //=== ITiming implementation ===//
+  /**
+   * @brief Configures the timer with the specified timer value in microseconds
+   * for the OCRA value.
+   */
   void SetupTimer(uint16_t timerValue_us) override;
   void StartTimer() override;
   void StopTimer() override;
