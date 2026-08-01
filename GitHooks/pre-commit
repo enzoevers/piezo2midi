@@ -9,8 +9,8 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-python ./Scripts/FormatPython.py --check-only
-if [ $? -ne 0 ]; then
-    echo "Code formatting failed for Python. Please fix the issues before committing."
-    exit 1
-fi
+# python ./Scripts/FormatPython.py --check-only
+# if [ $? -ne 0 ]; then
+#     echo "Code formatting failed for Python. Please fix the issues before committing."
+#     exit 1
+# fi

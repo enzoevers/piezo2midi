@@ -1,0 +1,5 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "S3B-PH-SM4-TB_LF__SN_") (type "KiCad") (uri "C:/Users/enzoe/git/piezo2midi/KiCAD/MouserModels/LIB_S3B-PH-SM4-TB_LF__SN_/S3B-PH-SM4-TB_LF__SN_/KiCad/S3B-PH-SM4-TB_LF__SN_.kicad_sym") (options "") (descr ""))
+	(lib (name "S3B-PH-SM4-TB_LF__SN_") (type "KiCad") (uri "C:/Users/enzoe/git/piezo2midi/KiCAD/MouserModels/LIB_S3B-PH-SM4-TB_LF__SN_/S3B-PH-SM4-TB_LF__SN_/KiCad/S3B-PH-SM4-TB_LF__SN_.kicad_sym") (options "") (descr ""))
+)

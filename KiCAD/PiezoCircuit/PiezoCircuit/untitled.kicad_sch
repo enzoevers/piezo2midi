@@ -1,0 +1,3071 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "82a57df0-37a9-4d82-835e-0220fbeeb08f")
+	(paper "A4")
+	(lib_symbols
+		(symbol "Amplifier_Operational:LM358"
+			(pin_names
+				(offset 0.127)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "U"
+				(at 0 5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "LM358"
+				(at 0 -5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Low-Power, Dual Operational Amplifiers, DIP-8/SOIC-8/TO-99-8"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "dual opamp"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "SOIC*3.9x4.9mm*P1.27mm* DIP*W7.62mm* TO*99* OnSemi*Micro8* TSSOP*3x3mm*P0.65mm* TSSOP*4.4x3mm*P0.65mm* MSOP*3x3mm*P0.65mm* SSOP*3.9x4.9mm*P0.635mm* LFCSP*2x2mm*P0.5mm* *SIP* SOIC*5.3x6.2mm*P1.27mm*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "LM358_1_1"
+				(polyline
+					(pts
+						(xy -5.08 5.08) (xy 5.08 0) (xy -5.08 -5.08) (xy -5.08 5.08)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin output line
+					(at 7.62 0 180)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -7.62 -2.54 0)
+					(length 2.54)
+					(name "-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -7.62 2.54 0)
+					(length 2.54)
+					(name "+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "LM358_2_1"
+				(polyline
+					(pts
+						(xy -5.08 5.08) (xy 5.08 0) (xy -5.08 -5.08) (xy -5.08 5.08)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin input line
+					(at -7.62 2.54 0)
+					(length 2.54)
+					(name "+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -7.62 -2.54 0)
+					(length 2.54)
+					(name "-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 7.62 0 180)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "LM358_3_1"
+				(pin power_in line
+					(at -2.54 -7.62 90)
+					(length 3.81)
+					(name "V-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -2.54 7.62 270)
+					(length 3.81)
+					(name "V+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Diode:1N4001"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "D"
+				(at 0 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "1N4001"
+				(at 0 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "http://www.vishay.com/docs/88503/1n4001.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "50V 1A General Purpose Rectifier Diode, DO-41"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Sim.Device" "D"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Sim.Pins" "1=K 2=A"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "diode"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "D*DO?41*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "1N4001_0_1"
+				(polyline
+					(pts
+						(xy -1.27 1.27) (xy -1.27 -1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 0) (xy 1.27 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 0) (xy -1.27 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "1N4001_1_1"
+				(pin passive line
+					(at -3.81 0 0)
+					(length 2.54)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 3.81 0 180)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "S3B-PH-SM4-TB_LF__SN_:S3B-PH-SM4-TB_LF__SN_"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "J"
+				(at 16.51 7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Value" "S3B-PH-SM4-TB_LF__SN_"
+				(at 16.51 5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Footprint" "S3BPHSM4TBLFSN"
+				(at 16.51 -94.92 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Datasheet" "https://datasheet.datasheetarchive.com/originals/distributors/Datasheets_SAMA/75c02eb1799788a6b14d7c521ee36df4.pdf"
+				(at 16.51 -194.92 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Description" "PH SMT side entry shroud header 3 way JST PH Series, 2mm Pitch 3 Way 1 Row Right Angle PCB Header, Solder Termination, 2A"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Height" "5.5"
+				(at 16.51 -394.92 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Mouser Part Number" "N/A"
+				(at 16.51 -494.92 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/JST-Commercial/S3B-PH-SM4-TBLFSN?qs=QpmGXVUTftGJXptUJFK7oQ%3D%3D"
+				(at 16.51 -594.92 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Manufacturer_Name" "JST (JAPAN SOLDERLESS TERMINALS)"
+				(at 16.51 -694.92 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Manufacturer_Part_Number" "S3B-PH-SM4-TB(LF)(SN)"
+				(at 16.51 -794.92 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(symbol "S3B-PH-SM4-TB_LF__SN__1_1"
+				(rectangle
+					(start 5.08 2.54)
+					(end 15.24 -7.62)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at 0 -5.08 0)
+					(length 5.08)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 0)
+					(length 5.08)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 0 0)
+					(length 5.08)
+					(name "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 20.32 0 180)
+					(length 5.08)
+					(name "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 20.32 -2.54 180)
+					(length 5.08)
+					(name "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "power:GND"
+			(power global)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "#PWR"
+				(at 0 -6.35 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "GND"
+				(at 0 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "GND_0_1"
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "GND_1_1"
+				(pin power_in line
+					(at 0 0 270)
+					(length 0)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+	)
+	(junction
+		(at 121.92 83.82)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1126efad-2bfd-436a-a0f6-0a7f57e3e4f1")
+	)
+	(junction
+		(at 120.65 115.57)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1acb24cc-47cd-4cdf-92ac-337a9b3d5b95")
+	)
+	(junction
+		(at 173.99 102.87)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "745b1988-22c8-4670-bc4c-90103a5f97c6")
+	)
+	(junction
+		(at 100.33 113.03)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b81d28d9-9771-4348-9b68-fb86f2f0d2ef")
+	)
+	(junction
+		(at 100.33 120.65)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "bc9fce72-33ad-48be-8838-a1e481a8497e")
+	)
+	(junction
+		(at 101.6 88.9)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "bdbdf466-67fa-46d6-a04b-03c0b115dcab")
+	)
+	(junction
+		(at 176.53 71.12)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d69ef162-8758-4581-ba4c-9a73c9078803")
+	)
+	(junction
+		(at 101.6 81.28)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ed5d0385-3bd9-4b60-b5aa-44ba53373f0c")
+	)
+	(no_connect
+		(at 156.21 81.28)
+		(uuid "018db7da-fd8b-497f-9c50-104d0b57e880")
+	)
+	(no_connect
+		(at 156.21 78.74)
+		(uuid "0fe1d325-8e0c-4701-b069-15a76de9a06d")
+	)
+	(no_connect
+		(at 153.67 113.03)
+		(uuid "75e8a235-0967-4698-9fe3-875e562576c5")
+	)
+	(no_connect
+		(at 153.67 110.49)
+		(uuid "793226c5-6e01-4697-a496-7d42acb9a622")
+	)
+	(wire
+		(pts
+			(xy 120.65 128.27) (xy 105.41 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "090e57fa-a7ea-451a-a191-26946ea30de2")
+	)
+	(wire
+		(pts
+			(xy 161.29 68.58) (xy 125.73 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0de66cdb-71da-4349-84e4-b943e51ba142")
+	)
+	(wire
+		(pts
+			(xy 125.73 68.58) (xy 125.73 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "14481fca-b879-42c3-9f34-be3536793b59")
+	)
+	(wire
+		(pts
+			(xy 173.99 102.87) (xy 173.99 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1684e258-71b5-49d2-bba2-0d9e202fe5d7")
+	)
+	(wire
+		(pts
+			(xy 99.06 81.28) (xy 101.6 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "206ef74f-a825-43fc-850b-68e023700b4b")
+	)
+	(wire
+		(pts
+			(xy 161.29 83.82) (xy 161.29 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2320bce0-c600-46af-b7a4-1d55cff392d7")
+	)
+	(wire
+		(pts
+			(xy 81.28 57.15) (xy 81.28 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2865a5de-f8e9-4ab9-a0cd-e804d3a0f07b")
+	)
+	(wire
+		(pts
+			(xy 81.28 39.37) (xy 81.28 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2a586b98-30f0-4f58-a023-259a97a9af97")
+	)
+	(wire
+		(pts
+			(xy 100.33 120.65) (xy 100.33 121.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2fcafd8c-6df4-47ff-9fa9-03ac2ee31fa0")
+	)
+	(wire
+		(pts
+			(xy 121.92 96.52) (xy 121.92 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3d699586-c08b-45ae-af30-f2667a9599f1")
+	)
+	(wire
+		(pts
+			(xy 109.22 41.91) (xy 109.22 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "400a364b-373d-4547-93b9-f05ae4f955f8")
+	)
+	(wire
+		(pts
+			(xy 97.79 113.03) (xy 100.33 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "46890464-db34-44d3-aa82-36c11c30ccf3")
+	)
+	(wire
+		(pts
+			(xy 158.75 115.57) (xy 158.75 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "47b5debb-aae6-431d-8a01-5027c60d4c1b")
+	)
+	(wire
+		(pts
+			(xy 176.53 71.12) (xy 176.53 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4c2bb5f0-bd7c-4d63-b7b9-5414d99a9afb")
+	)
+	(wire
+		(pts
+			(xy 105.41 118.11) (xy 105.41 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4cca477f-cc09-4bec-b9a3-f51097c87c37")
+	)
+	(wire
+		(pts
+			(xy 132.08 110.49) (xy 133.35 110.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4f32b82b-c26e-4ad5-a37b-5621940436d4")
+	)
+	(wire
+		(pts
+			(xy 123.19 113.03) (xy 133.35 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "55587c40-3eeb-4e82-a8f2-579d10317f88")
+	)
+	(wire
+		(pts
+			(xy 125.73 81.28) (xy 135.89 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5b670a6a-f85d-47e2-9a78-2230dc625b9b")
+	)
+	(wire
+		(pts
+			(xy 173.99 102.87) (xy 176.53 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "615154e8-0851-4626-bcf8-11e4e6598d38")
+	)
+	(wire
+		(pts
+			(xy 176.53 71.12) (xy 179.07 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "72198925-150a-4240-95c0-a599d8dcbb25")
+	)
+	(wire
+		(pts
+			(xy 101.6 81.28) (xy 106.68 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "764fd953-72d9-4746-879f-a7615b9423f8")
+	)
+	(wire
+		(pts
+			(xy 123.19 100.33) (xy 123.19 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "922ab28e-858c-430e-ab2e-87f60c6b39e6")
+	)
+	(wire
+		(pts
+			(xy 106.68 86.36) (xy 106.68 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "922de92c-fae7-4de8-ad97-f4dcee50cf04")
+	)
+	(wire
+		(pts
+			(xy 176.53 83.82) (xy 161.29 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "99c74939-1ea5-4f87-a822-a78ee1a13376")
+	)
+	(wire
+		(pts
+			(xy 101.6 88.9) (xy 101.6 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a3256f65-19ff-41b9-bd2c-bf74a008e1e4")
+	)
+	(wire
+		(pts
+			(xy 120.65 115.57) (xy 133.35 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bf33ca3c-be5c-43ba-983b-b34bde7f544c")
+	)
+	(wire
+		(pts
+			(xy 173.99 115.57) (xy 158.75 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c0bc6cc8-fca5-4a8d-a2fd-0d2c6cfeab4e")
+	)
+	(wire
+		(pts
+			(xy 99.06 88.9) (xy 101.6 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c7d8d8bb-321d-4dec-91b0-ab38c880cb5d")
+	)
+	(wire
+		(pts
+			(xy 121.92 83.82) (xy 135.89 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d4f20c77-5708-4964-a056-f96fc40f029c")
+	)
+	(wire
+		(pts
+			(xy 100.33 113.03) (xy 105.41 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dce4fc58-bad6-4929-b118-2a1b940a48f6")
+	)
+	(wire
+		(pts
+			(xy 109.22 59.69) (xy 109.22 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "df9196cd-e452-4739-83ed-7e8810f8b225")
+	)
+	(wire
+		(pts
+			(xy 120.65 115.57) (xy 120.65 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e1435a5e-95f0-42a4-9bb4-ac0ca6d7787d")
+	)
+	(wire
+		(pts
+			(xy 106.68 96.52) (xy 121.92 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e24ac1a7-6adb-419c-95dc-41a75554d44a")
+	)
+	(wire
+		(pts
+			(xy 135.89 78.74) (xy 134.62 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eecb2bd7-4637-4eae-a890-64901efdfdff")
+	)
+	(wire
+		(pts
+			(xy 97.79 120.65) (xy 100.33 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f23a685a-ef13-4675-91d7-a34ad75d0bc9")
+	)
+	(wire
+		(pts
+			(xy 158.75 100.33) (xy 123.19 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f5c04ae1-4555-4293-a25a-61763a271501")
+	)
+	(label "VMCUref"
+		(at 109.22 41.91 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "85d8cfb6-0814-42ee-bd30-628a3f296935")
+	)
+	(label "VPiezoRef"
+		(at 81.28 39.37 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "93c87ad2-f91b-487a-a319-201650e4ed09")
+	)
+	(hierarchical_label "src0_tip"
+		(shape input)
+		(at 99.06 81.28 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "4db6930b-235c-4672-963f-43ecd4012268")
+	)
+	(hierarchical_label "VScaledOut1"
+		(shape input)
+		(at 176.53 102.87 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "5f55a5ea-d88b-42b0-84cc-9854f27a9706")
+	)
+	(hierarchical_label "src0_sleeve"
+		(shape input)
+		(at 99.06 88.9 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "b7215682-15ea-494e-bd4f-33bff4fe7ee8")
+	)
+	(hierarchical_label "src1_sleeve"
+		(shape input)
+		(at 97.79 120.65 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "bb0cb7c8-891f-402f-b703-d78d891a333c")
+	)
+	(hierarchical_label "VScaledOut0"
+		(shape input)
+		(at 179.07 71.12 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c977cbe4-062a-449e-9779-f722b3c33941")
+	)
+	(hierarchical_label "src1_tip"
+		(shape input)
+		(at 97.79 113.03 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "f080f291-b613-4559-a68f-f581c60137fc")
+	)
+	(symbol
+		(lib_id "Amplifier_Operational:LM358")
+		(at 111.76 52.07 0)
+		(unit 3)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1172c196-6019-47bb-a92a-21cf4c87351b")
+		(property "Reference" "UPClip1"
+			(at 110.49 50.7999 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "LM358"
+			(at 110.49 53.3399 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-8_5.3x5.3mm_P1.27mm"
+			(at 111.76 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf"
+			(at 111.76 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Low-Power, Dual Operational Amplifiers, DIP-8/SOIC-8/TO-99-8"
+			(at 111.76 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "697cf225-4150-47f7-95ce-793f86e284f6")
+		)
+		(pin "2"
+			(uuid "fcec6798-bdd5-46cd-af2c-13eef57ceb48")
+		)
+		(pin "6"
+			(uuid "264f2db9-1fcc-4f35-99c5-e66633ab59b3")
+		)
+		(pin "5"
+			(uuid "5d3a99cb-67aa-4048-b343-472edae009cf")
+		)
+		(pin "3"
+			(uuid "7fb7fee1-2a30-4aab-8098-5e25cba1d734")
+		)
+		(pin "7"
+			(uuid "2a1a7824-e9cf-4bf9-90c9-415f8cf380cd")
+		)
+		(pin "8"
+			(uuid "1a9aa0f7-8abd-41f4-9c4c-9971fc2b3a6a")
+		)
+		(pin "4"
+			(uuid "ca9ee0a2-9d99-4c0e-a682-028b4d11cbbd")
+		)
+		(instances
+			(project "PiezoCircuit"
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/2be2b040-6575-440b-9c7d-d649761b6b00"
+					(reference "UPClip2")
+					(unit 3)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/7ccbeaec-080f-459f-b8c8-1e0f916f7383"
+					(reference "UPClip1")
+					(unit 3)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c033f106-f533-4cdb-8406-125f5f1abf0a"
+					(reference "UPClip4")
+					(unit 3)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c4af4f80-79b5-4975-8372-094bda039662"
+					(reference "UPClip3")
+					(unit 3)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Diode:1N4001")
+		(at 101.6 85.09 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "16816046-eb0d-47f1-8012-bcf7274afe0f")
+		(property "Reference" "Dsrc1"
+			(at 94.488 84.836 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" ""
+			(at 98.298 85.344 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_2512_6332Metric"
+			(at 101.6 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "http://www.vishay.com/docs/88503/1n4001.pdf"
+			(at 101.6 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "50V 1A General Purpose Rectifier Diode, DO-41"
+			(at 101.6 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Device" "D"
+			(at 101.6 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 101.6 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "41375d81-2994-47a9-9339-8d6512245d69")
+		)
+		(pin "2"
+			(uuid "20b93c3b-8ded-40e2-b3a9-f40eb16b94aa")
+		)
+		(instances
+			(project "PiezoCircuit"
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/2be2b040-6575-440b-9c7d-d649761b6b00"
+					(reference "Dsrc3")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/7ccbeaec-080f-459f-b8c8-1e0f916f7383"
+					(reference "Dsrc1")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c033f106-f533-4cdb-8406-125f5f1abf0a"
+					(reference "Dsrc7")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c4af4f80-79b5-4975-8372-094bda039662"
+					(reference "Dsrc5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Amplifier_Operational:LM358")
+		(at 114.3 83.82 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "2269994d-c1eb-439b-88e2-8478919626bb")
+		(property "Reference" "UPFollower1"
+			(at 116.84 77.216 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LM358"
+			(at 116.84 79.756 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-8_5.3x5.3mm_P1.27mm"
+			(at 114.3 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf"
+			(at 114.3 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Low-Power, Dual Operational Amplifiers, DIP-8/SOIC-8/TO-99-8"
+			(at 114.3 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d814b634-9ff0-40e1-8003-3ab96b399bfc")
+		)
+		(pin "2"
+			(uuid "de3d3c8f-17b4-4051-809e-ddcbe8aada8a")
+		)
+		(pin "6"
+			(uuid "264f2db9-1fcc-4f35-99c5-e66633ab59b4")
+		)
+		(pin "5"
+			(uuid "5d3a99cb-67aa-4048-b343-472edae009d0")
+		)
+		(pin "3"
+			(uuid "5f160ad6-315c-472c-8ec0-03e3a5d9c737")
+		)
+		(pin "7"
+			(uuid "2a1a7824-e9cf-4bf9-90c9-415f8cf380ce")
+		)
+		(pin "8"
+			(uuid "f32a1f35-549c-4420-8908-b821c4373086")
+		)
+		(pin "4"
+			(uuid "ec7cc50e-53cf-4555-86df-65d34cf02d6a")
+		)
+		(instances
+			(project "PiezoCircuit"
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/2be2b040-6575-440b-9c7d-d649761b6b00"
+					(reference "UPFollower2")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/7ccbeaec-080f-459f-b8c8-1e0f916f7383"
+					(reference "UPFollower1")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c033f106-f533-4cdb-8406-125f5f1abf0a"
+					(reference "UPFollower4")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c4af4f80-79b5-4975-8372-094bda039662"
+					(reference "UPFollower3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "S3B-PH-SM4-TB_LF__SN_:S3B-PH-SM4-TB_LF__SN_")
+		(at 133.35 110.49 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3019ca96-31e3-4373-8a14-e390cb095c2b")
+		(property "Reference" "JRPsrc2"
+			(at 143.51 102.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "S3B-PH-SM4-TB_LF__SN_"
+			(at 143.51 105.41 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "KiCad:S3BPHSM4TBLFSN"
+			(at 149.86 205.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Datasheet" "https://datasheet.datasheetarchive.com/originals/distributors/Datasheets_SAMA/75c02eb1799788a6b14d7c521ee36df4.pdf"
+			(at 149.86 305.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Description" "PH SMT side entry shroud header 3 way JST PH Series, 2mm Pitch 3 Way 1 Row Right Angle PCB Header, Solder Termination, 2A"
+			(at 133.35 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Height" "5.5"
+			(at 149.86 505.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Mouser Part Number" "N/A"
+			(at 149.86 605.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/JST-Commercial/S3B-PH-SM4-TBLFSN?qs=QpmGXVUTftGJXptUJFK7oQ%3D%3D"
+			(at 149.86 705.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Manufacturer_Name" "JST (JAPAN SOLDERLESS TERMINALS)"
+			(at 149.86 805.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Manufacturer_Part_Number" "S3B-PH-SM4-TB(LF)(SN)"
+			(at 149.86 905.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "2"
+			(uuid "44cf0902-c7ba-4277-8cb0-b006d9622783")
+		)
+		(pin "5"
+			(uuid "5ec830ea-9250-43cc-b38c-e5a323b28853")
+		)
+		(pin "3"
+			(uuid "97377c7d-940d-4d87-b496-3748e54d3bbe")
+		)
+		(pin "1"
+			(uuid "2f91770a-042f-4ef1-b03a-5ae3f1fefa56")
+		)
+		(pin "4"
+			(uuid "3a163cf0-932c-4135-93ba-0d1a6ce4983a")
+		)
+		(instances
+			(project "PiezoCircuit"
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/2be2b040-6575-440b-9c7d-d649761b6b00"
+					(reference "JRPsrc4")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/7ccbeaec-080f-459f-b8c8-1e0f916f7383"
+					(reference "JRPsrc2")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c033f106-f533-4cdb-8406-125f5f1abf0a"
+					(reference "JRPsrc8")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c4af4f80-79b5-4975-8372-094bda039662"
+					(reference "JRPsrc6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 101.6 90.17 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "3fdaddfa-bb87-46d9-a7d3-38b05c1c124d")
+		(property "Reference" "#PWR029"
+			(at 101.6 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 104.14 90.678 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 101.6 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 101.6 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 101.6 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "07ea219f-675c-4b44-8d25-2a8dfe12802b")
+		)
+		(instances
+			(project "PiezoCircuit"
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/2be2b040-6575-440b-9c7d-d649761b6b00"
+					(reference "#PWR035")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/7ccbeaec-080f-459f-b8c8-1e0f916f7383"
+					(reference "#PWR029")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c033f106-f533-4cdb-8406-125f5f1abf0a"
+					(reference "#PWR047")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c4af4f80-79b5-4975-8372-094bda039662"
+					(reference "#PWR041")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 132.08 110.49 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "5e7b4e2d-267c-4c12-91c2-a6e091364ac4")
+		(property "Reference" "#PWR057"
+			(at 125.73 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 127 110.236 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 132.08 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 132.08 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 132.08 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "848a606e-b754-4e57-92f1-c8ebea5efecc")
+		)
+		(instances
+			(project "PiezoCircuit"
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/2be2b040-6575-440b-9c7d-d649761b6b00"
+					(reference "#PWR058")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/7ccbeaec-080f-459f-b8c8-1e0f916f7383"
+					(reference "#PWR057")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c033f106-f533-4cdb-8406-125f5f1abf0a"
+					(reference "#PWR060")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c4af4f80-79b5-4975-8372-094bda039662"
+					(reference "#PWR059")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 134.62 78.74 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "843d6022-e856-46cd-9257-c212ff0be0c0")
+		(property "Reference" "#PWR053"
+			(at 128.27 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 129.54 78.486 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 134.62 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 134.62 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 134.62 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "08c5a548-ee10-41bf-b10c-50a87124ee0e")
+		)
+		(instances
+			(project "PiezoCircuit"
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/2be2b040-6575-440b-9c7d-d649761b6b00"
+					(reference "#PWR054")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/7ccbeaec-080f-459f-b8c8-1e0f916f7383"
+					(reference "#PWR053")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c033f106-f533-4cdb-8406-125f5f1abf0a"
+					(reference "#PWR056")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c4af4f80-79b5-4975-8372-094bda039662"
+					(reference "#PWR055")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 100.33 121.92 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "9c673b39-7118-4330-b76f-52d4bfd72808")
+		(property "Reference" "#PWR030"
+			(at 100.33 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 103.124 122.428 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 100.33 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 100.33 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 100.33 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c1e1c69d-4665-48dd-97ba-71a4b3678d2c")
+		)
+		(instances
+			(project "PiezoCircuit"
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/2be2b040-6575-440b-9c7d-d649761b6b00"
+					(reference "#PWR036")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/7ccbeaec-080f-459f-b8c8-1e0f916f7383"
+					(reference "#PWR030")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c033f106-f533-4cdb-8406-125f5f1abf0a"
+					(reference "#PWR048")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c4af4f80-79b5-4975-8372-094bda039662"
+					(reference "#PWR042")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Amplifier_Operational:LM358")
+		(at 113.03 115.57 0)
+		(unit 2)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "ad72b9b1-b40e-4df8-a828-f11faec410e1")
+		(property "Reference" "UPFollower1"
+			(at 114.046 109.22 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LM358"
+			(at 114.808 110.998 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-8_5.3x5.3mm_P1.27mm"
+			(at 113.03 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf"
+			(at 113.03 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Low-Power, Dual Operational Amplifiers, DIP-8/SOIC-8/TO-99-8"
+			(at 113.03 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "697cf225-4150-47f7-95ce-793f86e284f7")
+		)
+		(pin "2"
+			(uuid "fcec6798-bdd5-46cd-af2c-13eef57ceb49")
+		)
+		(pin "6"
+			(uuid "978468e0-2beb-450b-8a4f-a9edc0b68274")
+		)
+		(pin "5"
+			(uuid "02cf36af-2f92-4c7c-962f-0f73604a432e")
+		)
+		(pin "3"
+			(uuid "7fb7fee1-2a30-4aab-8098-5e25cba1d735")
+		)
+		(pin "7"
+			(uuid "aa255909-52a5-45cb-bd8f-fdfed2de987f")
+		)
+		(pin "8"
+			(uuid "f32a1f35-549c-4420-8908-b821c4373087")
+		)
+		(pin "4"
+			(uuid "ec7cc50e-53cf-4555-86df-65d34cf02d6b")
+		)
+		(instances
+			(project "PiezoCircuit"
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/2be2b040-6575-440b-9c7d-d649761b6b00"
+					(reference "UPFollower2")
+					(unit 2)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/7ccbeaec-080f-459f-b8c8-1e0f916f7383"
+					(reference "UPFollower1")
+					(unit 2)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c033f106-f533-4cdb-8406-125f5f1abf0a"
+					(reference "UPFollower4")
+					(unit 2)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c4af4f80-79b5-4975-8372-094bda039662"
+					(reference "UPFollower3")
+					(unit 2)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Amplifier_Operational:LM358")
+		(at 166.37 102.87 0)
+		(unit 2)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "ca718002-1486-4da2-af6a-35a0ee8f9f38")
+		(property "Reference" "UPClip1"
+			(at 167.386 96.012 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LM358"
+			(at 167.386 98.552 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-8_5.3x5.3mm_P1.27mm"
+			(at 166.37 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf"
+			(at 166.37 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Low-Power, Dual Operational Amplifiers, DIP-8/SOIC-8/TO-99-8"
+			(at 166.37 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "697cf225-4150-47f7-95ce-793f86e284f8")
+		)
+		(pin "2"
+			(uuid "fcec6798-bdd5-46cd-af2c-13eef57ceb4a")
+		)
+		(pin "6"
+			(uuid "4db192ba-4967-4179-8fc7-a47297ecef8c")
+		)
+		(pin "5"
+			(uuid "cbc972b8-39c2-46bf-9939-b1c99f2ca910")
+		)
+		(pin "3"
+			(uuid "7fb7fee1-2a30-4aab-8098-5e25cba1d736")
+		)
+		(pin "7"
+			(uuid "27686ebe-43a2-4250-9b4a-28a6f35c2f50")
+		)
+		(pin "8"
+			(uuid "f32a1f35-549c-4420-8908-b821c4373088")
+		)
+		(pin "4"
+			(uuid "ec7cc50e-53cf-4555-86df-65d34cf02d6c")
+		)
+		(instances
+			(project "PiezoCircuit"
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/2be2b040-6575-440b-9c7d-d649761b6b00"
+					(reference "UPClip2")
+					(unit 2)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/7ccbeaec-080f-459f-b8c8-1e0f916f7383"
+					(reference "UPClip1")
+					(unit 2)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c033f106-f533-4cdb-8406-125f5f1abf0a"
+					(reference "UPClip4")
+					(unit 2)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c4af4f80-79b5-4975-8372-094bda039662"
+					(reference "UPClip3")
+					(unit 2)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 81.28 58.42 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "d0e9541a-d1a5-4d5f-92fb-ece786428215")
+		(property "Reference" "#PWR031"
+			(at 81.28 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 83.82 58.674 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 81.28 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 81.28 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 81.28 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ec29e4bb-b923-4811-88b7-b596968692c8")
+		)
+		(instances
+			(project "PiezoCircuit"
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/2be2b040-6575-440b-9c7d-d649761b6b00"
+					(reference "#PWR037")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/7ccbeaec-080f-459f-b8c8-1e0f916f7383"
+					(reference "#PWR031")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c033f106-f533-4cdb-8406-125f5f1abf0a"
+					(reference "#PWR049")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c4af4f80-79b5-4975-8372-094bda039662"
+					(reference "#PWR043")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Diode:1N4001")
+		(at 100.33 116.84 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "de5f9a78-b0f6-48f5-a903-ed336f3a4f05")
+		(property "Reference" "Dsrc2"
+			(at 93.218 116.586 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" ""
+			(at 97.028 117.094 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_2512_6332Metric"
+			(at 100.33 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "http://www.vishay.com/docs/88503/1n4001.pdf"
+			(at 100.33 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "50V 1A General Purpose Rectifier Diode, DO-41"
+			(at 100.33 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Device" "D"
+			(at 100.33 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 100.33 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a1b29f7f-50ea-4535-9eb2-feb3171906cc")
+		)
+		(pin "2"
+			(uuid "5ded5c66-5cd0-431f-b1d7-7da2050c6a1c")
+		)
+		(instances
+			(project "PiezoCircuit"
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/2be2b040-6575-440b-9c7d-d649761b6b00"
+					(reference "Dsrc4")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/7ccbeaec-080f-459f-b8c8-1e0f916f7383"
+					(reference "Dsrc2")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c033f106-f533-4cdb-8406-125f5f1abf0a"
+					(reference "Dsrc8")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c4af4f80-79b5-4975-8372-094bda039662"
+					(reference "Dsrc6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Amplifier_Operational:LM358")
+		(at 83.82 49.53 0)
+		(unit 3)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e3a376c7-0c74-4b62-824b-1f1f67f782bf")
+		(property "Reference" "UPFollower1"
+			(at 82.55 48.2599 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "LM358"
+			(at 82.55 50.7999 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-8_5.3x5.3mm_P1.27mm"
+			(at 83.82 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf"
+			(at 83.82 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Low-Power, Dual Operational Amplifiers, DIP-8/SOIC-8/TO-99-8"
+			(at 83.82 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "697cf225-4150-47f7-95ce-793f86e284f9")
+		)
+		(pin "2"
+			(uuid "fcec6798-bdd5-46cd-af2c-13eef57ceb4b")
+		)
+		(pin "6"
+			(uuid "264f2db9-1fcc-4f35-99c5-e66633ab59b5")
+		)
+		(pin "5"
+			(uuid "5d3a99cb-67aa-4048-b343-472edae009d1")
+		)
+		(pin "3"
+			(uuid "7fb7fee1-2a30-4aab-8098-5e25cba1d737")
+		)
+		(pin "7"
+			(uuid "2a1a7824-e9cf-4bf9-90c9-415f8cf380cf")
+		)
+		(pin "8"
+			(uuid "1aa6d4ca-ec4e-49c8-aec9-ff828173dca4")
+		)
+		(pin "4"
+			(uuid "a50d8b35-c7af-4e1b-890e-c16b84d20673")
+		)
+		(instances
+			(project "PiezoCircuit"
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/2be2b040-6575-440b-9c7d-d649761b6b00"
+					(reference "UPFollower2")
+					(unit 3)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/7ccbeaec-080f-459f-b8c8-1e0f916f7383"
+					(reference "UPFollower1")
+					(unit 3)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c033f106-f533-4cdb-8406-125f5f1abf0a"
+					(reference "UPFollower4")
+					(unit 3)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c4af4f80-79b5-4975-8372-094bda039662"
+					(reference "UPFollower3")
+					(unit 3)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Amplifier_Operational:LM358")
+		(at 168.91 71.12 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "e414f888-14fa-4222-b70b-9d091c368736")
+		(property "Reference" "UPClip1"
+			(at 169.926 64.008 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LM358"
+			(at 169.926 66.548 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-8_5.3x5.3mm_P1.27mm"
+			(at 168.91 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf"
+			(at 168.91 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Low-Power, Dual Operational Amplifiers, DIP-8/SOIC-8/TO-99-8"
+			(at 168.91 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "23fbb70f-c704-41c2-814f-d30f4f65d97c")
+		)
+		(pin "2"
+			(uuid "1c035b99-1c98-44e8-96a3-f0301d9b3482")
+		)
+		(pin "6"
+			(uuid "264f2db9-1fcc-4f35-99c5-e66633ab59b6")
+		)
+		(pin "5"
+			(uuid "5d3a99cb-67aa-4048-b343-472edae009d2")
+		)
+		(pin "3"
+			(uuid "4bff6a3c-56a0-40e5-b93d-9336311c4712")
+		)
+		(pin "7"
+			(uuid "2a1a7824-e9cf-4bf9-90c9-415f8cf380d0")
+		)
+		(pin "8"
+			(uuid "f32a1f35-549c-4420-8908-b821c4373089")
+		)
+		(pin "4"
+			(uuid "ec7cc50e-53cf-4555-86df-65d34cf02d6d")
+		)
+		(instances
+			(project "PiezoCircuit"
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/2be2b040-6575-440b-9c7d-d649761b6b00"
+					(reference "UPClip2")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/7ccbeaec-080f-459f-b8c8-1e0f916f7383"
+					(reference "UPClip1")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c033f106-f533-4cdb-8406-125f5f1abf0a"
+					(reference "UPClip4")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c4af4f80-79b5-4975-8372-094bda039662"
+					(reference "UPClip3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 109.22 60.96 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "f036557d-c80c-4207-ac85-95a9122ff44d")
+		(property "Reference" "#PWR034"
+			(at 109.22 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 111.76 61.214 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 109.22 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 109.22 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 109.22 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "4e09b72c-138c-4148-8064-09fddad43a04")
+		)
+		(instances
+			(project "PiezoCircuit"
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/2be2b040-6575-440b-9c7d-d649761b6b00"
+					(reference "#PWR040")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/7ccbeaec-080f-459f-b8c8-1e0f916f7383"
+					(reference "#PWR034")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c033f106-f533-4cdb-8406-125f5f1abf0a"
+					(reference "#PWR052")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c4af4f80-79b5-4975-8372-094bda039662"
+					(reference "#PWR046")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "S3B-PH-SM4-TB_LF__SN_:S3B-PH-SM4-TB_LF__SN_")
+		(at 135.89 78.74 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fa3e4a6f-2151-4ea3-9bcc-9d96ea923af8")
+		(property "Reference" "JRPsrc1"
+			(at 146.05 71.12 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "S3B-PH-SM4-TB_LF__SN_"
+			(at 146.05 73.66 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "KiCad:S3BPHSM4TBLFSN"
+			(at 152.4 173.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Datasheet" "https://datasheet.datasheetarchive.com/originals/distributors/Datasheets_SAMA/75c02eb1799788a6b14d7c521ee36df4.pdf"
+			(at 152.4 273.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Description" "PH SMT side entry shroud header 3 way JST PH Series, 2mm Pitch 3 Way 1 Row Right Angle PCB Header, Solder Termination, 2A"
+			(at 135.89 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Height" "5.5"
+			(at 152.4 473.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Mouser Part Number" "N/A"
+			(at 152.4 573.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/JST-Commercial/S3B-PH-SM4-TBLFSN?qs=QpmGXVUTftGJXptUJFK7oQ%3D%3D"
+			(at 152.4 673.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Manufacturer_Name" "JST (JAPAN SOLDERLESS TERMINALS)"
+			(at 152.4 773.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Manufacturer_Part_Number" "S3B-PH-SM4-TB(LF)(SN)"
+			(at 152.4 873.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "2"
+			(uuid "03eb34a4-2493-4b81-835a-b99fee848274")
+		)
+		(pin "5"
+			(uuid "41dfc41c-0ffb-4f38-91ac-3ff1c35db050")
+		)
+		(pin "3"
+			(uuid "5f5c3fa7-a3a0-4700-95b8-d8ff06992be1")
+		)
+		(pin "1"
+			(uuid "8302be0b-9ec1-4f38-bbce-5cddf333bdb7")
+		)
+		(pin "4"
+			(uuid "e19f7948-b13d-446f-b21e-497a56542ff5")
+		)
+		(instances
+			(project "PiezoCircuit"
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/2be2b040-6575-440b-9c7d-d649761b6b00"
+					(reference "JRPsrc3")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/7ccbeaec-080f-459f-b8c8-1e0f916f7383"
+					(reference "JRPsrc1")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c033f106-f533-4cdb-8406-125f5f1abf0a"
+					(reference "JRPsrc7")
+					(unit 1)
+				)
+				(path "/e389c290-4bba-4504-9313-1b64e80b2486/c4af4f80-79b5-4975-8372-094bda039662"
+					(reference "JRPsrc5")
+					(unit 1)
+				)
+			)
+		)
+	)
+)

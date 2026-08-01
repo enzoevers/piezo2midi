@@ -3,6 +3,7 @@
 #include <tuple> // For std::ignore
 
 #include "PiezoPeakDetector/PiezoPeakDetector.h"
+#include "PiezoPeakDetector/mocks/Mock_IState.h"
 
 class TestPiezoPeakDetector : public ::testing::Test {
 public:
@@ -187,4 +188,29 @@ TEST_F(
 
   EXPECT_EQ(result, expectedResult);
   EXPECT_EQ(m_piezoPeakDetector->GetState(), PiezoPeakDetectorState::IDLE);
+}
+
+//==============================
+// Reset()
+//==============================
+
+TEST_F(TestPiezoPeakDetector, test_Reset_ReturnsToIdleState) {
+  auto sample = PiezoSample{.timestamp_us = 20, .value = 300};
+  std::ignore = m_piezoPeakDetector->ProcessSample(sample);
+
+  EXPECT_NE(m_piezoPeakDetector->GetState(), PiezoPeakDetectorState::IDLE);
+  m_piezoPeakDetector->Reset();
+  EXPECT_EQ(m_piezoPeakDetector->GetState(), PiezoPeakDetectorState::IDLE);
+}
+
+TEST_F(TestPiezoPeakDetector, test_Reset_ClearContext) {
+  auto sample = PiezoSample{.timestamp_us = 20, .value = 300};
+  std::ignore = m_piezoPeakDetector->ProcessSample(sample);
+
+  m_piezoPeakDetector->Reset();
+  auto expectedContext =
+      PiezoPeakDetectorStateContext{.m_settings = *m_settings};
+  auto context = m_piezoPeakDetector->GetContext();
+
+  EXPECT_EQ(expectedContext, context);
 }

@@ -16,4 +16,9 @@ public:
 
   virtual auto
   ProcessSample(PiezoSample sample) -> PiezoSampleProcessingResult = 0;
+
+  /**
+   * @brief Resets the internal state of the peak detector.
+   */
+  virtual void Reset() = 0;
 };
